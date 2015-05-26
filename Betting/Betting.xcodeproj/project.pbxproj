@@ -25,6 +25,7 @@
 		72BFC13C1B146FA4005683CD /* News-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1311B146FA4005683CD /* News-Icon.png */; };
 		72BFC13D1B146FA4005683CD /* settings blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1321B146FA4005683CD /* settings blue.png */; };
 		72BFC13E1B146FA4005683CD /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1331B146FA4005683CD /* settings.png */; };
+		72BFC1401B147E8A005683CD /* SoccerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC13F1B147E8A005683CD /* SoccerData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		72BFC1311B146FA4005683CD /* News-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "News-Icon.png"; sourceTree = "<group>"; };
 		72BFC1321B146FA4005683CD /* settings blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings blue.png"; sourceTree = "<group>"; };
 		72BFC1331B146FA4005683CD /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		72BFC13F1B147E8A005683CD /* SoccerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
 				72BFC1261B146E95005683CD /* SoccerTableViewController.swift */,
+				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
 				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
 				72BFC1081B1469E9005683CD /* Main.storyboard */,
 				72BFC10B1B1469E9005683CD /* Images.xcassets */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BFC1401B147E8A005683CD /* SoccerData.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
 				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
