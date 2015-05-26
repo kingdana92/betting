@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1021B1469E9005683CD /* AppDelegate.swift */; };
-		72BFC1051B1469E9005683CD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1041B1469E9005683CD /* FirstViewController.swift */; };
-		72BFC1071B1469E9005683CD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1061B1469E9005683CD /* SecondViewController.swift */; };
 		72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1081B1469E9005683CD /* Main.storyboard */; };
 		72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC10B1B1469E9005683CD /* Images.xcassets */; };
 		72BFC10F1B1469E9005683CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC10D1B1469E9005683CD /* LaunchScreen.xib */; };
 		72BFC11B1B1469E9005683CD /* BettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC11A1B1469E9005683CD /* BettingTests.swift */; };
+		72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */; };
+		72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1261B146E95005683CD /* SoccerTableViewController.swift */; };
+		72BFC1341B146FA4005683CD /* background 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1291B146FA4005683CD /* background 1.png */; };
+		72BFC1351B146FA4005683CD /* background 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12A1B146FA4005683CD /* background 2.png */; };
+		72BFC1361B146FA4005683CD /* background 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12B1B146FA4005683CD /* background 3.png */; };
+		72BFC1371B146FA4005683CD /* dota blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12C1B146FA4005683CD /* dota blue.png */; };
+		72BFC1381B146FA4005683CD /* dota.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12D1B146FA4005683CD /* dota.png */; };
+		72BFC1391B146FA4005683CD /* football blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12E1B146FA4005683CD /* football blue.png */; };
+		72BFC13A1B146FA4005683CD /* football.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC12F1B146FA4005683CD /* football.png */; };
+		72BFC13B1B146FA4005683CD /* News-Icon blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1301B146FA4005683CD /* News-Icon blue.png */; };
+		72BFC13C1B146FA4005683CD /* News-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1311B146FA4005683CD /* News-Icon.png */; };
+		72BFC13D1B146FA4005683CD /* settings blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1321B146FA4005683CD /* settings blue.png */; };
+		72BFC13E1B146FA4005683CD /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1331B146FA4005683CD /* settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +41,25 @@
 		72BFC0FD1B1469E9005683CD /* Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFC1011B1469E9005683CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BFC1021B1469E9005683CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		72BFC1041B1469E9005683CD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		72BFC1061B1469E9005683CD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		72BFC1091B1469E9005683CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72BFC10B1B1469E9005683CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72BFC10E1B1469E9005683CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		72BFC1141B1469E9005683CD /* BettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BettingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFC1191B1469E9005683CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BFC11A1B1469E9005683CD /* BettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BettingTests.swift; sourceTree = "<group>"; };
+		72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoccerTableViewCell.swift; path = ../SoccerTableViewCell.swift; sourceTree = "<group>"; };
+		72BFC1261B146E95005683CD /* SoccerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerTableViewController.swift; sourceTree = "<group>"; };
+		72BFC1291B146FA4005683CD /* background 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background 1.png"; sourceTree = "<group>"; };
+		72BFC12A1B146FA4005683CD /* background 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background 2.png"; sourceTree = "<group>"; };
+		72BFC12B1B146FA4005683CD /* background 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background 3.png"; sourceTree = "<group>"; };
+		72BFC12C1B146FA4005683CD /* dota blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dota blue.png"; sourceTree = "<group>"; };
+		72BFC12D1B146FA4005683CD /* dota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dota.png; sourceTree = "<group>"; };
+		72BFC12E1B146FA4005683CD /* football blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "football blue.png"; sourceTree = "<group>"; };
+		72BFC12F1B146FA4005683CD /* football.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = football.png; sourceTree = "<group>"; };
+		72BFC1301B146FA4005683CD /* News-Icon blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "News-Icon blue.png"; sourceTree = "<group>"; };
+		72BFC1311B146FA4005683CD /* News-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "News-Icon.png"; sourceTree = "<group>"; };
+		72BFC1321B146FA4005683CD /* settings blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings blue.png"; sourceTree = "<group>"; };
+		72BFC1331B146FA4005683CD /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
-				72BFC1041B1469E9005683CD /* FirstViewController.swift */,
-				72BFC1061B1469E9005683CD /* SecondViewController.swift */,
+				72BFC1261B146E95005683CD /* SoccerTableViewController.swift */,
+				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
 				72BFC1081B1469E9005683CD /* Main.storyboard */,
 				72BFC10B1B1469E9005683CD /* Images.xcassets */,
 				72BFC10D1B1469E9005683CD /* LaunchScreen.xib */,
@@ -93,6 +115,7 @@
 		72BFC1001B1469E9005683CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				72BFC1281B146EDD005683CD /* Images */,
 				72BFC1011B1469E9005683CD /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +136,24 @@
 				72BFC1191B1469E9005683CD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72BFC1281B146EDD005683CD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				72BFC1291B146FA4005683CD /* background 1.png */,
+				72BFC12A1B146FA4005683CD /* background 2.png */,
+				72BFC12B1B146FA4005683CD /* background 3.png */,
+				72BFC12C1B146FA4005683CD /* dota blue.png */,
+				72BFC12D1B146FA4005683CD /* dota.png */,
+				72BFC12E1B146FA4005683CD /* football blue.png */,
+				72BFC12F1B146FA4005683CD /* football.png */,
+				72BFC1301B146FA4005683CD /* News-Icon blue.png */,
+				72BFC1311B146FA4005683CD /* News-Icon.png */,
+				72BFC1321B146FA4005683CD /* settings blue.png */,
+				72BFC1331B146FA4005683CD /* settings.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +205,7 @@
 				TargetAttributes = {
 					72BFC0FC1B1469E9005683CD = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 8935Q62QU4;
 					};
 					72BFC1131B1469E9005683CD = {
 						CreatedOnToolsVersion = 6.3;
@@ -195,9 +237,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BFC13A1B146FA4005683CD /* football.png in Resources */,
+				72BFC1341B146FA4005683CD /* background 1.png in Resources */,
+				72BFC1391B146FA4005683CD /* football blue.png in Resources */,
 				72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */,
 				72BFC10F1B1469E9005683CD /* LaunchScreen.xib in Resources */,
+				72BFC13B1B146FA4005683CD /* News-Icon blue.png in Resources */,
+				72BFC1381B146FA4005683CD /* dota.png in Resources */,
+				72BFC1351B146FA4005683CD /* background 2.png in Resources */,
+				72BFC13E1B146FA4005683CD /* settings.png in Resources */,
+				72BFC1361B146FA4005683CD /* background 3.png in Resources */,
 				72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */,
+				72BFC1371B146FA4005683CD /* dota blue.png in Resources */,
+				72BFC13D1B146FA4005683CD /* settings blue.png in Resources */,
+				72BFC13C1B146FA4005683CD /* News-Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72BFC1071B1469E9005683CD /* SecondViewController.swift in Sources */,
+				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
+				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
-				72BFC1051B1469E9005683CD /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +399,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Betting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -356,9 +412,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Betting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -415,6 +474,7 @@
 				72BFC1201B1469E9005683CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72BFC1211B1469E9005683CD /* Build configuration list for PBXNativeTarget "BettingTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +483,7 @@
 				72BFC1231B1469E9005683CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
