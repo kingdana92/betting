@@ -10,24 +10,25 @@ import Foundation
 import UIKit
 
 class SoccerData {
-    var id : Int!
     
-    func getSoccerData(name: String) {
+    func getSoccerData() {
+        
         var url = "http://football-api.com/api/?Action=competitions&APIKey=849ab98c-654a-ba43-31b5c7258ed3"
         
         let session = NSURLSession.sharedSession()
         let urlContent = NSURL(string: url)
         
-        
-        var task = session.dataTaskWithURL(urlContent!) {
-            (data, response, error) -> Void in
+        var task = session.dataTaskWithURL(urlContent!, completionHandler: {data, response, error -> Void in
+            
             if error != nil {
                 println(error.localizedDescription)
             } else {
-
-                println(data)
+                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
+                println(jsonResult)
             }
-        }
+            
+        })
         task.resume()
     }
 }
+

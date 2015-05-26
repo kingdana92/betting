@@ -105,8 +105,8 @@
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
 				72BFC1261B146E95005683CD /* SoccerTableViewController.swift */,
-				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
 				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
+				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
 				72BFC1081B1469E9005683CD /* Main.storyboard */,
 				72BFC10B1B1469E9005683CD /* Images.xcassets */,
 				72BFC10D1B1469E9005683CD /* LaunchScreen.xib */,

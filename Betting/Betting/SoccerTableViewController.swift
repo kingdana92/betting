@@ -8,15 +8,16 @@
 
 import UIKit
 
-var soccerInfo = SoccerData()
+var getData = SoccerData()
 
 class SoccerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getData.getSoccerData()
+        
         tableView.rowHeight = 200
-        SoccerData.getSoccerData()
     }
 
     override func didReceiveMemoryWarning() {
