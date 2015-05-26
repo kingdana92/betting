@@ -12,6 +12,8 @@ var getData = SoccerData()
 
 class SoccerTableViewController: UITableViewController {
 
+    var backgroundImages = ["background 1.png", "background 2.png", "background 3.png"]
+    var activeRow = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,10 +39,16 @@ class SoccerTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as! SoccerTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as SoccerTableViewCell
 
         // Configure the cell...
         cell.homeTeamName.text = "Manchester"
+        activeRow = indexPath.row
+        var dice1 = Int(arc4random_uniform(3))
+        cell.backImage.image = UIImage(named: backgroundImages[dice1])
+        cell.liveLabel.text = "   Live"
+        
+        
         
 
         return cell

@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
+var footballApiKey = "849ab98c-654a-ba43-31b5c7258ed3"
+
 class SoccerData {
     
     func getSoccerData() {
         
-        var url = "http://football-api.com/api/?Action=competitions&APIKey=849ab98c-654a-ba43-31b5c7258ed3"
-        
+        var url = "http://football-api.com/api/?Action=competitions&APIKey=" + footballApiKey
         let session = NSURLSession.sharedSession()
         let urlContent = NSURL(string: url)
         
@@ -23,8 +24,10 @@ class SoccerData {
             if error != nil {
                 println(error.localizedDescription)
             } else {
-                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
-                println(jsonResult)
+                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                println(jsonResult["APIVersion"]!)
+                
+                
             }
             
         })
