@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 var getData = SoccerData()
 
@@ -20,6 +21,14 @@ class SoccerTableViewController: UITableViewController {
         getData.getSoccerData()
         
         tableView.rowHeight = 200
+        
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
+        
+//        let testObject = PFObject(className: "TestObject")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            println("Object has been saved.")
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +48,7 @@ class SoccerTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as SoccerTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as! SoccerTableViewCell
 
         // Configure the cell...
         cell.homeTeamName.text = "Manchester"

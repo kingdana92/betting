@@ -24,7 +24,7 @@ class SoccerData {
             if error != nil {
                 println(error.localizedDescription)
             } else {
-                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
                 println(jsonResult["APIVersion"]!)
                 
                 
