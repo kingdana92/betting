@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-var getData = SoccerData()
+var getData = SoccerMatch()
 
 class SoccerTableViewController: UITableViewController {
 
@@ -17,18 +17,11 @@ class SoccerTableViewController: UITableViewController {
     var activeRow = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getData.getSoccerData()
-        
+   
         tableView.rowHeight = 200
         
         tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            println("Object has been saved.")
-//        }
     }
 
     override func didReceiveMemoryWarning() {
