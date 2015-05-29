@@ -11,20 +11,54 @@ import UIKit
 
 class SoccerLiveEvent {
     
-    var getEventId = 0
-    var getEventMatchId = 0
+    var getEventId = ""
+    var getEventMatchId = ""
     var getEventType = ""
-    var getEventMinute = 0
+    var getEventMinute = ""
     var getEventTeam = ""
     var getEventPlayer = ""
-    var getEventPlayerId = 0
+    var getEventPlayerId = ""
     var getEventResult = ""
     
-    func eventId() -> Int {
+    //Setters
+    func setEventId(event : String) {
+        getEventId = event
+    }
+    
+    func setEventMatchId(eventId : String) {
+        getEventMatchId = eventId
+    }
+    
+    func setEventType(eventType : String) {
+        getEventType = eventType
+    }
+    
+    func setEventMinute(eventMinute : String) {
+        getEventMinute = eventMinute
+    }
+    
+    func setEventTeam(eventTeam : String) {
+        getEventTeam = eventTeam
+    }
+    
+    func setEventPlayer(eventPlayer : String) {
+        getEventPlayer = eventPlayer
+    }
+    
+    func setEventPlayerId(eventPlayerId : String) {
+        getEventPlayerId = eventPlayerId
+    }
+    
+    func setEventResult(eventResult : String) {
+        getEventResult = eventResult
+    }
+    
+    //Getters
+    func eventId() -> String {
         return getEventId
     }
     
-    func eventMatchId() -> Int {
+    func eventMatchId() -> String {
         return getEventMatchId
     }
     
@@ -32,7 +66,7 @@ class SoccerLiveEvent {
         return getEventType
     }
     
-    func eventMinute() -> Int {
+    func eventMinute() -> String {
         return getEventMinute
     }
     
@@ -44,7 +78,7 @@ class SoccerLiveEvent {
         return getEventPlayer
     }
     
-    func eventPlayerId() -> Int {
+    func eventPlayerId() -> String {
         return getEventPlayerId
     }
     

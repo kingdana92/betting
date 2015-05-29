@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-var getData = SoccerMatch()
+var getData = SoccerData()
 
 class SoccerTableViewController: UITableViewController {
 
@@ -19,8 +19,9 @@ class SoccerTableViewController: UITableViewController {
         super.viewDidLoad()
    
         tableView.rowHeight = 200
-        
         tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
+        
+        getData.getFixtures()
         
     }
 
@@ -47,7 +48,7 @@ class SoccerTableViewController: UITableViewController {
         cell.homeTeamName.text = "Manchester"
         activeRow = indexPath.row
         var dice1 = Int(arc4random_uniform(3))
-        cell.backImage.image = UIImage(named: backgroundImages[dice1])
+        cell.backImage.image = UIImage(named: backgroundImages[1])
         cell.liveLabel.text = "   Live"
         
         
