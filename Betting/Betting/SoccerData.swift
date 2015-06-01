@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import Parse
 
-
+var soccerTable = SoccerTableViewController()
 class SoccerData {
     
     //API KEY
@@ -26,24 +27,22 @@ class SoccerData {
     //Variables
     var matchArray : NSMutableArray = []
     var liveMatchArray : NSMutableArray = []
-
     
     //Functions
     func getFixtures() {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.101/football/api/match/get_fixtures/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
+            self.matchArray.removeAllObjects()
             if error != nil {
                 println(error.localizedDescription)
             } else {
                 let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-                
+                //println(jsonResult)
                 if let match: AnyObject = jsonResult["match"] {
-                    println(match)
                     for var x = 0; x < match.count; x++ {
                         if let fixture: AnyObject = match[x] {
                             
@@ -65,36 +64,90 @@ class SoccerData {
                             objectBox.setAwayTeamId(fixture["match_visitorteam_id"] as! String)
                             objectBox.setAwayTeamName(fixture["match_visitorteam_name"] as! String)
                             objectBox.setAwayTeamScore(fixture["match_visitorteam_score"] as! String)
-                            
+                                                        
                             //Add To Array as Object
                             self.matchArray.addObject(objectBox)
-                            
+                            //
+
                         }
+
                     }
                 }
             }
+            if rControl != nil {
+                rControl.endRefreshing()
+            }
         })
         task.resume()
+
     }
     
     //Get Live Data
     func getLiveData() {
         
-    }
-    
-    
-    
-    //Betting Process
-    func uploadBet(userId : String, matchId : String, teamId : String, betAmount : String) {
-        
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.110/hohotest/api/users/confirm/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/get_livescore/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
-        var params = ["user_id":userId, "match_id":matchId, "team_id":teamId, "bet_amount":betAmount] as Dictionary<String, String>
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            if error != nil {
+                println(error.localizedDescription)
+            } else {
+                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                if let livescore: AnyObject = jsonResult["livescore"] {
+                    for var x = 0; x < livescore.count; x++ {
+                        if let match: AnyObject = livescore[x] {
+                            //Set Object
+                            let liveBox: SoccerLiveEvent = SoccerLiveEvent()
+                            liveBox.setMatchId(match["match_id"] as! String)
+                            liveBox.setCompId(match["match_comp_id"] as! String)
+                            liveBox.setCommentaryAvailable(match["match_commentary_available"] as! String)
+                            liveBox.setDate(match["match_date"] as! String)
+                            liveBox.setExtraTimeScore(match["match_et_score"] as! String)
+                            liveBox.setFormattedDate(match["match_formatted_date"] as! String)
+                            liveBox.setFullTimeSocre(match["match_ft_score"] as! String)
+                            liveBox.setHalfTimeScore(match["match_ht_score"] as! String)
+                            liveBox.setHomeTeamId(match["match_localteam_id"] as! String)
+                            liveBox.setHomeTeamName(match["match_localteam_name"] as! String)
+                            liveBox.setHomeTeamScore(match["match_localteam_score"] as! String)
+                            liveBox.setStatus(match["match_status"] as! String)
+                            liveBox.setTime(match["match_time"] as! String)
+                            liveBox.setAwayTeamId(match["match_visitorteam_id"] as! String)
+                            liveBox.setAwayTeamName(match["match_visitorteam_name"] as! String)
+                            liveBox.setAwayTeamScore(match["match_visitorteam_score"] as! String)
+                            
+                            //Add To Array as Object
+                            self.liveMatchArray.addObject(liveBox)
+                            
+                        }
+                    }
+                }
+            }
+            
+        })
+        task.resume()
+        
+    }
+    
+    
+    func gettingPercentage() {
+        
+        
+    }
+    
+    //Betting Process
+    func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String) {
+        
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/user_betting/format/json")!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        
+        var params = ["user_id":userId,"match_id":matchId,"amount":betAmount,"match_localteam":teamId,"match_vistorteam":teamId2] as Dictionary<String, String>
         
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -104,7 +157,6 @@ class SoccerData {
             println("Body: \(strData)")
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-            
             if(err != nil) {
                 println(err!.localizedDescription)
                 let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
@@ -124,5 +176,8 @@ class SoccerData {
         })
         task.resume()
     }
+    
+    
+
 }
 

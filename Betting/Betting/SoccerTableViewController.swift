@@ -10,21 +10,37 @@ import UIKit
 import Parse
 
 var getData = SoccerData()
+var rControl : UIRefreshControl!
 
 class SoccerTableViewController: UITableViewController {
-
+    
     var backgroundImages = ["background 1.png", "background 2.png", "background 3.png"]
     var activeRow = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-   
         tableView.rowHeight = 200
-        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
+        //tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         
-        getData.getFixtures()
+        rControl = UIRefreshControl()
+        rControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        rControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(rControl)
         
+        
+        //getData.getFixtures()
+        //getData.getLiveData()
+        getData.gettingPercentage()
     }
 
+    func refresh(sender:AnyObject)
+    {
+        getData.getFixtures()
+        getData.getLiveData()
+        tableView.reloadData()
+        //rControl.endRefreshing()
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -37,69 +53,28 @@ class SoccerTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return getData.matchArray.count
     }
 
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as! SoccerTableViewCell
 
         // Configure the cell...
-        cell.homeTeamName.text = "Manchester"
-        activeRow = indexPath.row
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
+        cell.homeTeamName.text = fixture.getMatchHomeTeamName
+        cell.visitTeamName.text = fixture.getMatchAwayTeamName
+        cell.homeTeamScore.text = fixture.getMatchHomeTeamScore
+        cell.visitTeamScore.text = fixture.getMatchAwayTeamScore
+        
         var dice1 = Int(arc4random_uniform(3))
         cell.backImage.image = UIImage(named: backgroundImages[1])
         cell.liveLabel.text = "   Live"
-        
-        
-        
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

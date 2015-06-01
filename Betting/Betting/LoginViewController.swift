@@ -29,14 +29,15 @@ class LoginViewController: UIViewController {
             if user != nil {
                 // Do stuff after successful login.
                 self.performSegueWithIdentifier("primary", sender: self)
+                println("login")
             } else {
-                // The login failed. Check error to see why.
+                println("wrong")
             }
         }
         
     }
     @IBAction func facebookLogin(sender: AnyObject) {
-        
+        self.performSegueWithIdentifier("primary", sender: self)
     }
     
     @IBAction func signUp(sender: AnyObject) {
