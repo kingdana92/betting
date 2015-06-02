@@ -27,6 +27,9 @@ class SoccerMatch {
     var getMatchHalfTimeScore = ""
     var getMatchFullTimeScore = ""
     var getMatchExtraTimeScore = ""
+    var getMatchPoolTotal = ""
+    var getMatchLocalTeamTotal = ""
+    var getMatchVisitorTeamTotal = ""
     
     //Setters
     func setMatchId(matchID : String) {
@@ -93,6 +96,17 @@ class SoccerMatch {
         getMatchExtraTimeScore = extratime
     }
     
+    func setPoolTotal(poolTotal : String) {
+        getMatchPoolTotal = poolTotal
+    }
+    
+    func setLocalTeamTotal(localTotal : String) {
+        getMatchLocalTeamTotal = localTotal
+    }
+    
+    func setVisitorTeamTotal(visitorTotal : String) {
+        getMatchVisitorTeamTotal = visitorTotal
+    }
     
     //Getters
     func matchId() -> String {
@@ -157,5 +171,17 @@ class SoccerMatch {
     
     func matchExtraTimeScore() -> String {
         return getMatchExtraTimeScore
+    }
+    
+    func matchPoolTotal() -> String {
+        return getMatchPoolTotal
+    }
+    
+    func matchLocalTeamTotal() -> String {
+        return getMatchLocalTeamTotal
+    }
+    
+    func matchVisitorTeamTotal() -> String {
+        return getMatchVisitorTeamTotal
     }
 }

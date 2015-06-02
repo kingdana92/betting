@@ -31,7 +31,7 @@ class SoccerData {
     //Functions
     func getFixtures() {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/get_fixtures/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.107/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -41,42 +41,49 @@ class SoccerData {
                 println(error.localizedDescription)
             } else {
                 let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-                //println(jsonResult)
-                if let match: AnyObject = jsonResult["match"] {
-                    for var x = 0; x < match.count; x++ {
-                        if let fixture: AnyObject = match[x] {
-                            
-                            //Set Object
+                if let fixtures: AnyObject = jsonResult["fixtures"] {
+                    for var y = 0; y < fixtures.count; y++ {
+                        if let allMatch: AnyObject = fixtures[y] {
                             let objectBox: SoccerMatch = SoccerMatch()
-                            objectBox.setMatchId(fixture["match_id"] as! String)
-                            objectBox.setCompId(fixture["match_comp_id"] as! String)
-                            objectBox.setCommentaryAvailable(fixture["match_commentary_available"] as! String)
-                            objectBox.setDate(fixture["match_date"] as! String)
-                            objectBox.setExtraTimeScore(fixture["match_et_score"] as! String)
-                            objectBox.setFormattedDate(fixture["match_formatted_date"] as! String)
-                            objectBox.setFullTimeSocre(fixture["match_ft_score"] as! String)
-                            objectBox.setHalfTimeScore(fixture["match_ht_score"] as! String)
-                            objectBox.setHomeTeamId(fixture["match_localteam_id"] as! String)
-                            objectBox.setHomeTeamName(fixture["match_localteam_name"] as! String)
-                            objectBox.setHomeTeamScore(fixture["match_localteam_score"] as! String)
-                            objectBox.setStatus(fixture["match_status"] as! String)
-                            objectBox.setTime(fixture["match_time"] as! String)
-                            objectBox.setAwayTeamId(fixture["match_visitorteam_id"] as! String)
-                            objectBox.setAwayTeamName(fixture["match_visitorteam_name"] as! String)
-                            objectBox.setAwayTeamScore(fixture["match_visitorteam_score"] as! String)
-                                                        
-                            //Add To Array as Object
-                            self.matchArray.addObject(objectBox)
-                            //
-
+                            //let poolTotal = String(stringInterpolationSegment: allMatch["pool_total"])
+                            
+                            objectBox.setPoolTotal(allMatch["pool_total"] as! String)
+                            objectBox.setLocalTeamTotal(allMatch["localteam_total"] as! String)
+                            objectBox.setVisitorTeamTotal(allMatch["visitorteam_total"] as! String)
+                            
+                            if let match: AnyObject = allMatch["match"] {
+                                //Set Object
+                                objectBox.setMatchId(match["match_id"] as! String)
+                                objectBox.setCompId(match["match_comp_id"] as! String)
+                                objectBox.setCommentaryAvailable(match["match_commentary_available"] as! String)
+                                objectBox.setDate(match["match_date"] as! String)
+                                objectBox.setExtraTimeScore(match["match_et_score"] as! String)
+                                objectBox.setFormattedDate(match["match_formatted_date"] as! String)
+                                objectBox.setFullTimeSocre(match["match_ft_score"] as! String)
+                                objectBox.setHalfTimeScore(match["match_ht_score"] as! String)
+                                objectBox.setHomeTeamId(match["match_localteam_id"] as! String)
+                                objectBox.setHomeTeamName(match["match_localteam_name"] as! String)
+                                objectBox.setHomeTeamScore(match["match_localteam_score"] as! String)
+                                objectBox.setStatus(match["match_status"] as! String)
+                                objectBox.setTime(match["match_time"] as! String)
+                                objectBox.setAwayTeamId(match["match_visitorteam_id"] as! String)
+                                objectBox.setAwayTeamName(match["match_visitorteam_name"] as! String)
+                                objectBox.setAwayTeamScore(match["match_visitorteam_score"] as! String)
+                                
+                                //Add To Array as Object
+                                self.matchArray.addObject(objectBox)
+                                
+                            }
                         }
-
                     }
                 }
             }
+                
             if rControl != nil {
                 rControl.endRefreshing()
             }
+            
+            let nada: SoccerMatch = self.matchArray.objectAtIndex(1) as! SoccerMatch
         })
         task.resume()
 
@@ -127,12 +134,6 @@ class SoccerData {
             
         })
         task.resume()
-        
-    }
-    
-    
-    func gettingPercentage() {
-        
         
     }
     
