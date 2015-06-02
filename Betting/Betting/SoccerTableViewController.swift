@@ -86,7 +86,7 @@ class SoccerTableViewController: UITableViewController {
         
         
         var dice1 = Int(arc4random_uniform(3))
-        cell.backImage.image = UIImage(named: backgroundImages[1])
+        //cell.backImage.image = UIImage(named: backgroundImages[1])
         cell.liveLabel.text = "   Live"
 
         return cell

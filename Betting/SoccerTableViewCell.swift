@@ -28,7 +28,7 @@ class SoccerTableViewCell: UITableViewCell {
     
     
     //Background Image
-    @IBOutlet weak var backImage: UIImageView!
+    //@IBOutlet weak var backImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
