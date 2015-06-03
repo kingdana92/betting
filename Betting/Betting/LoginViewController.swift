@@ -60,14 +60,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if PFUser.currentUser() != nil {
-            performSegueWithIdentifier("primary", sender: self)
-        }
-        
-        println(PFUser.currentUser())
-        
-        
-        
+        println(NSDate())
     }
 
     override func didReceiveMemoryWarning() {

@@ -30,6 +30,7 @@ class SoccerMatch {
     var getMatchPoolTotal = ""
     var getMatchLocalTeamTotal = ""
     var getMatchVisitorTeamTotal = ""
+    var upcomingTime = ""
     
     //Setters
     func setMatchId(matchID : String) {
@@ -108,6 +109,23 @@ class SoccerMatch {
         getMatchVisitorTeamTotal = visitorTotal
     }
     
+    func setMatchtime(upcomingMatchTime : String) {
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")
+        let dateFString = dateFormatter.dateFromString(upcomingMatchTime)
+        let upcomingDate = NSInteger(NSDate().timeIntervalSinceDate(dateFString!))
+        var minutes = (upcomingDate / 60) % 60
+        var correctMinute = minutes - minutes * 2
+        var hours = (upcomingDate / 3600) - (upcomingDate / 3600 * 2)
+        if correctMinute < 10 {
+            upcomingTime = "\(hours):0\(correctMinute)"
+        } else {
+            upcomingTime = "\(hours):\(correctMinute)"
+        }
+    }
+    
     //Getters
     func matchId() -> String {
         return getMatchId
@@ -183,5 +201,9 @@ class SoccerMatch {
     
     func matchVisitorTeamTotal() -> String {
         return getMatchVisitorTeamTotal
+    }
+    
+    func getUpcomingTime() -> String {
+        return upcomingTime
     }
 }

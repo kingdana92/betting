@@ -22,10 +22,10 @@ class SoccerTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeamRate: UILabel!
     @IBOutlet weak var visitTeamRate: UILabel!
     
-    //Status Label
+    //Status Label and Image
     @IBOutlet weak var liveLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
-    
+    @IBOutlet weak var statusImage: UIImageView!
     
     //Background Image
     //@IBOutlet weak var backImage: UIImageView!

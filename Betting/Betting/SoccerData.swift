@@ -31,7 +31,7 @@ class SoccerData {
     //Functions
     func getFixtures() {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.107/football/api/match/get_fixtures/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.105/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -69,6 +69,10 @@ class SoccerData {
                                 objectBox.setAwayTeamId(match["match_visitorteam_id"] as! String)
                                 objectBox.setAwayTeamName(match["match_visitorteam_name"] as! String)
                                 objectBox.setAwayTeamScore(match["match_visitorteam_score"] as! String)
+                                let formatDate = match["match_formatted_date"] as! String
+                                let formatTime = match["match_time"] as! String
+                                let setMatchTimeString = formatDate + " " + formatTime
+                                objectBox.setMatchtime(setMatchTimeString)
                                 
                                 //Add To Array as Object
                                 self.matchArray.addObject(objectBox)
@@ -92,7 +96,7 @@ class SoccerData {
     //Get Live Data
     func getLiveData() {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/get_livescore/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.105/football/api/match/get_livescore/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -140,7 +144,7 @@ class SoccerData {
     //Betting Process
     func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String) {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.102/football/api/match/user_betting/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.105/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         

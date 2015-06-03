@@ -18,8 +18,6 @@ class SoccerTableViewController: UITableViewController {
     var activeRow = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.rowHeight = 160
-        //tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         
         rControl = UIRefreshControl()
         rControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -28,13 +26,14 @@ class SoccerTableViewController: UITableViewController {
         
         
         getData.getFixtures()
-        getData.getLiveData()
+        //getData.getLiveData()
+        //getData.uploadBet("qs8RcHexOo", matchId: "2001950", teamId: "0", teamId2: "10772", betAmount: "700")
     }
 
     func refresh(sender:AnyObject)
     {
         getData.getFixtures()
-        getData.getLiveData()
+        //getData.getLiveData()
         tableView.reloadData()
         //rControl.endRefreshing()
     
@@ -64,30 +63,29 @@ class SoccerTableViewController: UITableViewController {
         
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
 
-        let homeTeamTotal = fixture.getMatchLocalTeamTotal.toInt()
-        let awayTeamTotal = fixture.getMatchVisitorTeamTotal.toInt()
-        let total = homeTeamTotal! + awayTeamTotal!
-        var homeRate = 0
-        var awayRate = 0
+        let homeTeamTotal = (fixture.getMatchLocalTeamTotal as NSString).doubleValue
+        let awayTeamTotal = (fixture.getMatchVisitorTeamTotal as NSString).doubleValue
+        let total = (fixture.getMatchPoolTotal as NSString).doubleValue
+        
+        //Getting Rate
         if total > 0 {
-            homeRate = homeTeamTotal!/total
-            awayRate = awayTeamTotal!/total
-            cell.homeTeamRate.text = "\(homeRate)%"
-            cell.visitTeamRate.text = "\(awayRate)%"
+            let homeRate = homeTeamTotal/total
+            let awayRate = awayTeamTotal/total
+            let numberOfPlaces = 2.0
+            let multiplier = pow(10.0, numberOfPlaces)
+            let roundedHome = NSInteger((round(homeRate * multiplier) / multiplier) * 100)
+            let roundedAway = NSInteger((round(awayRate * multiplier) / multiplier) * 100)
+            cell.homeTeamRate.text = String(stringInterpolationSegment: roundedHome) + "%"
+            cell.visitTeamRate.text = String(stringInterpolationSegment: roundedAway) + "%"
         } else {
             cell.homeTeamRate.text = "0%"
             cell.visitTeamRate.text = "0%"
         }
-        //Configure the cell...
         cell.homeTeamName.text = fixture.getMatchHomeTeamName
         cell.visitTeamName.text = fixture.getMatchAwayTeamName
         cell.homeTeamScore.text = fixture.getMatchHomeTeamScore
         cell.visitTeamScore.text = fixture.getMatchAwayTeamScore
-        
-        
-        var dice1 = Int(arc4random_uniform(3))
-        //cell.backImage.image = UIImage(named: backgroundImages[1])
-        cell.liveLabel.text = "   Live"
+        cell.liveLabel.text = fixture.getUpcomingTime()
 
         return cell
     }
