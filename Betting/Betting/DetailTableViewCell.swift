@@ -10,7 +10,7 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var homeTeamEventImgae: UIView!
+    @IBOutlet weak var homeTeamEventImage: UIImageView!
     @IBOutlet weak var homeTeamEventPlayer: UILabel!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var awayTeamEventPlayer: UILabel!
