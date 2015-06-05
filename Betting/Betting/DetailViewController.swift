@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     //Home Team
@@ -38,6 +37,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         detailTableView.reloadData()
         
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
+        
         //Home Team
         homeTeamScore.text = fixture.getMatchHomeTeamScore
         homeTeamName.text = fixture.getMatchHomeTeamName

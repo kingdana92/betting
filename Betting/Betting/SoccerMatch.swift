@@ -31,6 +31,7 @@ class SoccerMatch {
     var getMatchLocalTeamTotal = ""
     var getMatchVisitorTeamTotal = ""
     var upcomingTime = ""
+    var live = false
     
     //Setters
     func setMatchId(matchID : String) {
@@ -123,6 +124,11 @@ class SoccerMatch {
             upcomingTime = "\(hours):0\(correctMinute)"
         } else {
             upcomingTime = "\(hours):\(correctMinute)"
+        }
+        if hours == 0 && correctMinute == 0 {
+            live = true
+        } else {
+            live = false
         }
     }
     

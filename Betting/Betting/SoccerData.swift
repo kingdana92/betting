@@ -36,7 +36,7 @@ class SoccerData {
     
     //Functions
     func getFixtures() {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.104/football/api/match/get_fixtures/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -46,44 +46,48 @@ class SoccerData {
                 println(error.localizedDescription)
             } else {
                 let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-                if let fixtures: AnyObject = jsonResult["fixtures"] {
-                    for var y = 0; y < fixtures.count; y++ {
-                        if let allMatch: AnyObject = fixtures[y] {
-                            let objectBox: SoccerMatch = SoccerMatch()
-                            //let poolTotal = String(stringInterpolationSegment: allMatch["pool_total"])
-                            
-                            objectBox.setPoolTotal(allMatch["pool_total"] as! String)
-                            objectBox.setLocalTeamTotal(allMatch["localteam_total"] as! String)
-                            objectBox.setVisitorTeamTotal(allMatch["visitorteam_total"] as! String)
-                            
-                            if let match: AnyObject = allMatch["match"] {
-                                //Set Object
-                                objectBox.setMatchId(match["match_id"] as! String)
-                                objectBox.setCompId(match["match_comp_id"] as! String)
-                                objectBox.setCommentaryAvailable(match["match_commentary_available"] as! String)
-                                objectBox.setDate(match["match_date"] as! String)
-                                objectBox.setExtraTimeScore(match["match_et_score"] as! String)
-                                objectBox.setFormattedDate(match["match_formatted_date"] as! String)
-                                objectBox.setFullTimeSocre(match["match_ft_score"] as! String)
-                                objectBox.setHalfTimeScore(match["match_ht_score"] as! String)
-                                objectBox.setHomeTeamId(match["match_localteam_id"] as! String)
-                                objectBox.setHomeTeamName(match["match_localteam_name"] as! String)
-                                objectBox.setHomeTeamScore(match["match_localteam_score"] as! String)
-                                objectBox.setStatus(match["match_status"] as! String)
-                                objectBox.setTime(match["match_time"] as! String)
-                                objectBox.setAwayTeamId(match["match_visitorteam_id"] as! String)
-                                objectBox.setAwayTeamName(match["match_visitorteam_name"] as! String)
-                                objectBox.setAwayTeamScore(match["match_visitorteam_score"] as! String)
-                                let formatDate = match["match_formatted_date"] as! String
-                                let formatTime = match["match_time"] as! String
-                                let setMatchTimeString = formatDate + " " + formatTime
-                                objectBox.setMatchtime(setMatchTimeString)
+                if jsonResult["status"] as! String == "success" {
+                    if let fixtures: AnyObject = jsonResult["fixtures"] {
+                        for var y = 0; y < fixtures.count; y++ {
+                            if let allMatch: AnyObject = fixtures[y] {
+                                let objectBox: SoccerMatch = SoccerMatch()
+                                //let poolTotal = String(stringInterpolationSegment: allMatch["pool_total"])
                                 
-                                //Add To Array as Object
-                                self.matchArray.addObject(objectBox)
+                                objectBox.setPoolTotal(allMatch["pool_total"] as! String)
+                                objectBox.setLocalTeamTotal(allMatch["localteam_total"] as! String)
+                                objectBox.setVisitorTeamTotal(allMatch["visitorteam_total"] as! String)
+                                
+                                if let match: AnyObject = allMatch["match"] {
+                                    //Set Object
+                                    objectBox.setMatchId(match["match_id"] as! String)
+                                    objectBox.setCompId(match["match_comp_id"] as! String)
+                                    objectBox.setCommentaryAvailable(match["match_commentary_available"] as! String)
+                                    objectBox.setDate(match["match_date"] as! String)
+                                    objectBox.setExtraTimeScore(match["match_et_score"] as! String)
+                                    objectBox.setFormattedDate(match["match_formatted_date"] as! String)
+                                    objectBox.setFullTimeSocre(match["match_ft_score"] as! String)
+                                    objectBox.setHalfTimeScore(match["match_ht_score"] as! String)
+                                    objectBox.setHomeTeamId(match["match_localteam_id"] as! String)
+                                    objectBox.setHomeTeamName(match["match_localteam_name"] as! String)
+                                    objectBox.setHomeTeamScore(match["match_localteam_score"] as! String)
+                                    objectBox.setStatus(match["match_status"] as! String)
+                                    objectBox.setTime(match["match_time"] as! String)
+                                    objectBox.setAwayTeamId(match["match_visitorteam_id"] as! String)
+                                    objectBox.setAwayTeamName(match["match_visitorteam_name"] as! String)
+                                    objectBox.setAwayTeamScore(match["match_visitorteam_score"] as! String)
+                                    let formatDate = match["match_formatted_date"] as! String
+                                    let formatTime = match["match_time"] as! String
+                                    let setMatchTimeString = formatDate + " " + formatTime
+                                    objectBox.setMatchtime(setMatchTimeString)
+                                    
+                                    //Add To Array as Object
+                                    self.matchArray.addObject(objectBox)
+                                }
                             }
                         }
                     }
+                } else {
+                    println("no match")
                 }
             }
             if rControl != nil {
@@ -97,7 +101,7 @@ class SoccerData {
     //Get Live Data
     func getLiveData() {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.104/football/api/match/get_livescore/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_livescore/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -145,7 +149,7 @@ class SoccerData {
     //Betting Process
     func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String) {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.104/football/api/match/user_betting/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         

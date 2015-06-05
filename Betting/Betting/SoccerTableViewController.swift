@@ -9,12 +9,12 @@
 import UIKit
 import Parse
 
+var activeRow = 0
+
 var rControl : UIRefreshControl!
 var getData = SoccerData()
-var activeRow = 0
 class SoccerTableViewController: UITableViewController {
     var backgroundImages = ["background 1.png", "background 2.png", "background 3.png"]
-    var activeRow = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +42,6 @@ class SoccerTableViewController: UITableViewController {
     
     func reloadTable() {
         tableView.reloadData()
-        println("reloading")
     }
     
     func handleTimer(timer: NSTimer) {
@@ -70,9 +69,9 @@ class SoccerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("soccerCell", forIndexPath: indexPath) as! SoccerTableViewCell
-        activeRow = indexPath.row
+        
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
-
+        
         let homeTeamTotal = (fixture.getMatchLocalTeamTotal as NSString).doubleValue
         let awayTeamTotal = (fixture.getMatchVisitorTeamTotal as NSString).doubleValue
         let total = (fixture.getMatchPoolTotal as NSString).doubleValue
@@ -91,17 +90,27 @@ class SoccerTableViewController: UITableViewController {
             cell.homeTeamRate.text = "0%"
             cell.visitTeamRate.text = "0%"
         }
+        
+        //Home and Away Labels
         cell.homeTeamName.text = fixture.getMatchHomeTeamName
         cell.visitTeamName.text = fixture.getMatchAwayTeamName
         cell.homeTeamScore.text = fixture.getMatchHomeTeamScore
         cell.visitTeamScore.text = fixture.getMatchAwayTeamScore
-        cell.liveLabel.text = fixture.getUpcomingTime()
+        
+        //Live Status
+        if fixture.live == false {
+            cell.statusImage.hidden = true
+            cell.liveLabel.text = fixture.getUpcomingTime()
+        } else {
+            cell.statusImage.hidden = false
+        }
 
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("soccerDetail", sender: self)
+        activeRow = indexPath.row
     }
 
 }

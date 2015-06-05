@@ -167,13 +167,7 @@
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
 				72CEB10E1B159C770097B317 /* LoginViewController.swift */,
-				72BFC1261B146E95005683CD /* SoccerTableViewController.swift */,
-				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
-				72C249011B1D55CB0038AC71 /* DetailViewController.swift */,
-				72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */,
-				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
-				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
-				72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */,
+				72D960C71B205168004D6A1D /* Soccer */,
 				72BFC1081B1469E9005683CD /* Main.storyboard */,
 				72BFC10B1B1469E9005683CD /* Images.xcassets */,
 				72BFC10D1B1469E9005683CD /* LaunchScreen.xib */,
@@ -248,6 +242,20 @@
 				72CEB0CD1B1580150097B317 /* libz.dylib */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		72D960C71B205168004D6A1D /* Soccer */ = {
+			isa = PBXGroup;
+			children = (
+				72BFC1261B146E95005683CD /* SoccerTableViewController.swift */,
+				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
+				72C249011B1D55CB0038AC71 /* DetailViewController.swift */,
+				72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */,
+				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
+				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
+				72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */,
+			);
+			name = Soccer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
