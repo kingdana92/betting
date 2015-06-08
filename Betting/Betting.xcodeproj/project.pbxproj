@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7232EC791B256E3F00AC5763 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC711B256E3F00AC5763 /* libPayPalMobile.a */; };
+		7232EC7B1B256E8E00AC5763 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7A1B256E8E00AC5763 /* Accelerate.framework */; };
+		7232EC7D1B256E9B00AC5763 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */; };
+		7232EC7F1B256EAB00AC5763 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7E1B256EAB00AC5763 /* CoreMedia.framework */; };
+		7232EC811B256EB300AC5763 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC801B256EB300AC5763 /* MessageUI.framework */; };
+		7232EC881B25727600AC5763 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC871B25727600AC5763 /* Social.framework */; };
+		7232EC8A1B25727E00AC5763 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC891B25727E00AC5763 /* Accounts.framework */; };
+		7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */; };
 		72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1021B1469E9005683CD /* AppDelegate.swift */; };
 		72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1081B1469E9005683CD /* Main.storyboard */; };
 		72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC10B1B1469E9005683CD /* Images.xcassets */; };
@@ -43,9 +51,6 @@
 		72CEB0F41B1582500097B317 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0F31B1582500097B317 /* SystemConfiguration.framework */; };
 		72CEB1081B15850E0097B317 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1021B15850E0097B317 /* Bolts.framework */; };
 		72CEB1091B15850E0097B317 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1031B15850E0097B317 /* Parse.framework */; };
-		72CEB10A1B15850E0097B317 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1041B15850E0097B317 /* ParseCrashReporting.framework */; };
-		72CEB10B1B15850E0097B317 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1051B15850E0097B317 /* ParseFacebookUtils.framework */; };
-		72CEB10C1B15850E0097B317 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1061B15850E0097B317 /* ParseFacebookUtilsV4.framework */; };
 		72CEB10D1B15850E0097B317 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1071B15850E0097B317 /* ParseUI.framework */; };
 		72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEB10E1B159C770097B317 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +66,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7232EC691B256E3F00AC5763 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
+		7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
+		7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
+		7232EC6C1B256E3F00AC5763 /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewController.h; sourceTree = "<group>"; };
+		7232EC6D1B256E3F00AC5763 /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
+		7232EC6E1B256E3F00AC5763 /* CardIOUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOUtilities.h; sourceTree = "<group>"; };
+		7232EC6F1B256E3F00AC5763 /* CardIOView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOView.h; sourceTree = "<group>"; };
+		7232EC701B256E3F00AC5763 /* CardIOViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOViewDelegate.h; sourceTree = "<group>"; };
+		7232EC711B256E3F00AC5763 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
+		7232EC721B256E3F00AC5763 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
+		7232EC731B256E3F00AC5763 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
+		7232EC741B256E3F00AC5763 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
+		7232EC751B256E3F00AC5763 /* PayPalOAuthScopes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalOAuthScopes.h; sourceTree = "<group>"; };
+		7232EC761B256E3F00AC5763 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		7232EC771B256E3F00AC5763 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		7232EC781B256E3F00AC5763 /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
+		7232EC7A1B256E8E00AC5763 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7232EC7E1B256EAB00AC5763 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7232EC801B256EB300AC5763 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		7232EC821B256EED00AC5763 /* Betting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Betting-Bridging-Header.h"; sourceTree = "<group>"; };
+		7232EC871B25727600AC5763 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7232EC891B25727E00AC5763 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetPageViewController.swift; sourceTree = "<group>"; };
 		72BFC0FD1B1469E9005683CD /* Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFC1011B1469E9005683CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BFC1021B1469E9005683CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,9 +130,6 @@
 		72CEB0F31B1582500097B317 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		72CEB1021B15850E0097B317 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		72CEB1031B15850E0097B317 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		72CEB1041B15850E0097B317 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		72CEB1051B15850E0097B317 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		72CEB1061B15850E0097B317 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		72CEB1071B15850E0097B317 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		72CEB10E1B159C770097B317 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,18 +139,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7232EC8A1B25727E00AC5763 /* Accounts.framework in Frameworks */,
+				7232EC881B25727600AC5763 /* Social.framework in Frameworks */,
+				7232EC811B256EB300AC5763 /* MessageUI.framework in Frameworks */,
+				7232EC7F1B256EAB00AC5763 /* CoreMedia.framework in Frameworks */,
+				7232EC7D1B256E9B00AC5763 /* AVFoundation.framework in Frameworks */,
+				7232EC7B1B256E8E00AC5763 /* Accelerate.framework in Frameworks */,
 				72CEB0F41B1582500097B317 /* SystemConfiguration.framework in Frameworks */,
 				72CEB0F21B15824A0097B317 /* StoreKit.framework in Frameworks */,
 				72CEB0F01B1582430097B317 /* QuartzCore.framework in Frameworks */,
 				72CEB1081B15850E0097B317 /* Bolts.framework in Frameworks */,
 				72CEB0EE1B15823F0097B317 /* Security.framework in Frameworks */,
-				72CEB10A1B15850E0097B317 /* ParseCrashReporting.framework in Frameworks */,
 				72CEB0EC1B1582370097B317 /* CoreGraphics.framework in Frameworks */,
 				72CEB1091B15850E0097B317 /* Parse.framework in Frameworks */,
-				72CEB10B1B15850E0097B317 /* ParseFacebookUtils.framework in Frameworks */,
 				72CEB10D1B15850E0097B317 /* ParseUI.framework in Frameworks */,
 				72CEB0EA1B15822D0097B317 /* MobileCoreServices.framework in Frameworks */,
-				72CEB10C1B15850E0097B317 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				7232EC791B256E3F00AC5763 /* libPayPalMobile.a in Frameworks */,
 				72CEB0E81B1582150097B317 /* CFNetwork.framework in Frameworks */,
 				72CEB0E61B15820E0097B317 /* AudioToolbox.framework in Frameworks */,
 				72CEB0E41B15817F0097B317 /* CoreLocation.framework in Frameworks */,
@@ -143,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7232EC8D1B2577DE00AC5763 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
+				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
+				72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		72BFC0F41B1469E9005683CD = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +219,7 @@
 		72BFC1001B1469E9005683CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7232EC821B256EED00AC5763 /* Betting-Bridging-Header.h */,
 				72BFC1281B146EDD005683CD /* Images */,
 				72BFC1011B1469E9005683CD /* Info.plist */,
 			);
@@ -223,11 +264,30 @@
 		72CEB0F51B1582700097B317 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				7232EC891B25727E00AC5763 /* Accounts.framework */,
+				7232EC871B25727600AC5763 /* Social.framework */,
+				7232EC801B256EB300AC5763 /* MessageUI.framework */,
+				7232EC7E1B256EAB00AC5763 /* CoreMedia.framework */,
+				7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */,
+				7232EC7A1B256E8E00AC5763 /* Accelerate.framework */,
+				7232EC691B256E3F00AC5763 /* CardIO.h */,
+				7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */,
+				7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */,
+				7232EC6C1B256E3F00AC5763 /* CardIOPaymentViewController.h */,
+				7232EC6D1B256E3F00AC5763 /* CardIOPaymentViewControllerDelegate.h */,
+				7232EC6E1B256E3F00AC5763 /* CardIOUtilities.h */,
+				7232EC6F1B256E3F00AC5763 /* CardIOView.h */,
+				7232EC701B256E3F00AC5763 /* CardIOViewDelegate.h */,
+				7232EC711B256E3F00AC5763 /* libPayPalMobile.a */,
+				7232EC721B256E3F00AC5763 /* PayPalConfiguration.h */,
+				7232EC731B256E3F00AC5763 /* PayPalFuturePaymentViewController.h */,
+				7232EC741B256E3F00AC5763 /* PayPalMobile.h */,
+				7232EC751B256E3F00AC5763 /* PayPalOAuthScopes.h */,
+				7232EC761B256E3F00AC5763 /* PayPalPayment.h */,
+				7232EC771B256E3F00AC5763 /* PayPalPaymentViewController.h */,
+				7232EC781B256E3F00AC5763 /* PayPalProfileSharingViewController.h */,
 				72CEB1021B15850E0097B317 /* Bolts.framework */,
 				72CEB1031B15850E0097B317 /* Parse.framework */,
-				72CEB1041B15850E0097B317 /* ParseCrashReporting.framework */,
-				72CEB1051B15850E0097B317 /* ParseFacebookUtils.framework */,
-				72CEB1061B15850E0097B317 /* ParseFacebookUtilsV4.framework */,
 				72CEB1071B15850E0097B317 /* ParseUI.framework */,
 				72CEB0F31B1582500097B317 /* SystemConfiguration.framework */,
 				72CEB0F11B15824A0097B317 /* StoreKit.framework */,
@@ -251,9 +311,8 @@
 				72BFC1241B146E84005683CD /* SoccerTableViewCell.swift */,
 				72C249011B1D55CB0038AC71 /* DetailViewController.swift */,
 				72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */,
-				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
-				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
-				72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */,
+				7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */,
+				7232EC8D1B2577DE00AC5763 /* Data */,
 			);
 			name = Soccer;
 			sourceTree = "<group>";
@@ -374,6 +433,7 @@
 				72C249041B1D98D30038AC71 /* DetailTableViewCell.swift in Sources */,
 				72BFC1401B147E8A005683CD /* SoccerData.swift in Sources */,
 				72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */,
+				7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
 				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
@@ -510,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dana . (P75E63Q624)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dana . (P75E63Q624)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -519,8 +580,18 @@
 				INFOPLIST_FILE = Betting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ba656b78-57d1-4fac-9e25-2cc2f2229e95";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betting/Betting-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -528,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dana . (P75E63Q624)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dana . (P75E63Q624)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -537,8 +609,17 @@
 				INFOPLIST_FILE = Betting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ba656b78-57d1-4fac-9e25-2cc2f2229e95";
+				SWIFT_OBJC_BRIDGING_HEADER = "Betting/Betting-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -10,9 +10,9 @@ import UIKit
 import Parse
 
 var activeRow = 0
-
 var rControl : UIRefreshControl!
 var getData = SoccerData()
+
 class SoccerTableViewController: UITableViewController {
     var backgroundImages = ["background 1.png", "background 2.png", "background 3.png"]
     override func viewDidLoad() {
@@ -109,8 +109,17 @@ class SoccerTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("soccerDetail", sender: self)
         activeRow = indexPath.row
+        
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
+        betMatchHomeTeamId = fixture.getMatchHomeTeamId
+        betMatchAwayTeamId = fixture.getMatchAwayTeamId
+        betMatchId = fixture.getMatchId
+        if fixture.getMatchStatus == "Live" {
+            performSegueWithIdentifier("soccerDetail", sender: self)
+        } else {
+            performSegueWithIdentifier("betPage", sender: self)
+        }
     }
 
 }

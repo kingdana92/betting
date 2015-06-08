@@ -147,13 +147,13 @@ class SoccerData {
     }
     
     //Betting Process
-    func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String) {
+    func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String, payPalId : String) {
         
         var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
-        var params = ["user_id":userId,"match_id":matchId,"amount":betAmount,"match_localteam":teamId,"match_vistorteam":teamId2] as Dictionary<String, String>
+        var params = ["user_id":userId,"match_id":matchId,"amount":betAmount,"match_localteam":teamId,"match_vistorteam":teamId2,"paypal_id":payPalId] as Dictionary<String, String>
         
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
@@ -186,8 +186,5 @@ class SoccerData {
         })
         task.resume()
     }
-    
-    
-
 }
 

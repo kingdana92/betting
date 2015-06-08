@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        PayPalMobile.initializeWithClientIdsForEnvironments([PayPalEnvironmentProduction:"TEST", PayPalEnvironmentSandbox:"Ae2xql0gN8EHkWsy-WppTsJyonyFpvvYHRSUVTjSGbtBEiMN4BAdwd-FmPA_xV4vZpXE58d-HBaLuOKp"])
+        
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
