@@ -14,10 +14,14 @@ var betLocal = ""
 var betVisitor = ""
 var betMatchHomeTeamId = ""
 var betMatchAwayTeamId = ""
+var teamName = ["", "Arsenal", "Chelsea"]
 
 class BetPageViewController: UIViewController, PayPalPaymentDelegate {
 
+    var teamChoose = 0
     var sData = SoccerData()
+    
+    //Paypal
     var environment:String = PayPalEnvironmentSandbox {
         willSet(newEnvironment) {
             if (newEnvironment != environment) {
@@ -25,7 +29,6 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
             }
         }
     }
-    
     var acceptCreditCards: Bool = true {
         didSet {
             payPalConfig.acceptCreditCards = acceptCreditCards
@@ -33,20 +36,34 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     }
     var payPalConfig = PayPalConfiguration() // default
     
-    var teamChoose = 0
-    var teamName = ["", "Arsenal", "Chelsea"]
+    
+    @IBOutlet weak var team1Rate: UILabel!
+    @IBOutlet weak var team1Rank: UILabel!
+    @IBOutlet weak var team1Name: UILabel!
+    @IBOutlet weak var team1: UIButton!
     @IBAction func team1button(sender: AnyObject) {
-        betMatchHomeTeamId == betLocal
-        betMatchAwayTeamId = "0"
         teamChoose = 1
-        println(betMatchHomeTeamId)
+        team1.backgroundColor = nil
+        team1.alpha = 1.0
+        team2.backgroundColor = UIColor.blackColor()
+        team2.alpha = 0.4
+        println(teamName[1])
     }
+    
+    @IBOutlet weak var team2Rate: UILabel!
+    @IBOutlet weak var team2Rank: UILabel!
+    @IBOutlet weak var team2Name: UILabel!
+    @IBOutlet weak var team2: UIButton!
     @IBAction func team2button(sender: AnyObject) {
-        betMatchAwayTeamId == betVisitor
-        betMatchHomeTeamId = "0"
         teamChoose = 2
-        println(betMatchAwayTeamId)
+        team1.backgroundColor = UIColor.blackColor()
+        team1.alpha = 0.4
+        team2.backgroundColor = nil
+        team2.alpha = 1.0
+        println(teamName[2])
+
     }
+    
     @IBOutlet weak var betAmount: UITextField!
     
     @IBAction func submitBet(sender: AnyObject) {
@@ -75,16 +92,38 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Paypal
         payPalConfig.acceptCreditCards = acceptCreditCards;
         payPalConfig.merchantName = "Betting Yangon"
         payPalConfig.merchantPrivacyPolicyURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/privacy-full")
         payPalConfig.merchantUserAgreementURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/useragreement-full")
-        
-        
         payPalConfig.languageOrLocale = NSLocale.preferredLanguages()[0] as! String
         payPalConfig.payPalShippingAddressOption = .PayPal;
+        //println("PayPal iOS SDK Version: \(PayPalMobile.libraryVersion())")
         
-        println("PayPal iOS SDK Version: \(PayPalMobile.libraryVersion())")
+        //Getting data
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
+        team1Name.text = fixture.getMatchHomeTeamName
+        team2Name.text = fixture.getMatchAwayTeamName
+        //Team Rate
+        let homeTeamTotal = (fixture.getMatchLocalTeamTotal as NSString).doubleValue
+        let awayTeamTotal = (fixture.getMatchVisitorTeamTotal as NSString).doubleValue
+        let total = (fixture.getMatchPoolTotal as NSString).doubleValue
+        
+        //Getting Rate
+        if total > 0 {
+            let homeRate = homeTeamTotal/total
+            let awayRate = awayTeamTotal/total
+            let numberOfPlaces = 2.0
+            let multiplier = pow(10.0, numberOfPlaces)
+            let roundedHome = NSInteger((round(homeRate * multiplier) / multiplier) * 100)
+            let roundedAway = NSInteger((round(awayRate * multiplier) / multiplier) * 100)
+            team1Rate.text = String(stringInterpolationSegment: roundedHome) + "%"
+            team2Rate.text = String(stringInterpolationSegment: roundedAway) + "%"
+        } else {
+            team1Rate.text = "0%"
+            team2Rate.text = "0%"
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -105,8 +144,13 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
             // send completed confirmaion to your server
             println("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             if let response: AnyObject = completedPayment.confirmation["response"] {
-                println(response["id"])
-                self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: response["id"]as! String)
+                
+                if self.teamChoose == 1 {
+                    self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: response["id"]as! String)
+                } else {
+                    self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: response["id"]as! String)
+                }
+                
             }
         })
     }

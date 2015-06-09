@@ -15,6 +15,7 @@
 		7232EC881B25727600AC5763 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC871B25727600AC5763 /* Social.framework */; };
 		7232EC8A1B25727E00AC5763 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC891B25727E00AC5763 /* Accounts.framework */; };
 		7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */; };
+		72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */; };
 		72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1021B1469E9005683CD /* AppDelegate.swift */; };
 		72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1081B1469E9005683CD /* Main.storyboard */; };
 		72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC10B1B1469E9005683CD /* Images.xcassets */; };
@@ -37,7 +38,6 @@
 		72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C249011B1D55CB0038AC71 /* DetailViewController.swift */; };
 		72C249041B1D98D30038AC71 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */; };
 		72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */; };
-		72C2D3F51B16F5ED00E5CCB0 /* SoccerLiveEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */; };
 		72CEB0CE1B1580150097B317 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0CD1B1580150097B317 /* libz.dylib */; };
 		72CEB0D01B15801D0097B317 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0CF1B15801D0097B317 /* libsqlite3.dylib */; };
 		72CEB0E41B15817F0097B317 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0E31B15817F0097B317 /* CoreLocation.framework */; };
@@ -90,6 +90,7 @@
 		7232EC871B25727600AC5763 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7232EC891B25727E00AC5763 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetPageViewController.swift; sourceTree = "<group>"; };
+		72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getPayPalToken.swift; sourceTree = "<group>"; };
 		72BFC0FD1B1469E9005683CD /* Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFC1011B1469E9005683CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BFC1021B1469E9005683CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		72C249011B1D55CB0038AC71 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerMatch.swift; sourceTree = "<group>"; };
-		72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerLiveEvent.swift; sourceTree = "<group>"; };
 		72CEB0CD1B1580150097B317 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		72CEB0CF1B15801D0097B317 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		72CEB0E31B15817F0097B317 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -176,9 +176,9 @@
 		7232EC8D1B2577DE00AC5763 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */,
 				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
 				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
-				72C2D3F41B16F5ED00E5CCB0 /* SoccerLiveEvent.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -433,11 +433,11 @@
 				72C249041B1D98D30038AC71 /* DetailTableViewCell.swift in Sources */,
 				72BFC1401B147E8A005683CD /* SoccerData.swift in Sources */,
 				72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */,
+				72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */,
 				7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
 				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
-				72C2D3F51B16F5ED00E5CCB0 /* SoccerLiveEvent.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
 				72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */,
 			);

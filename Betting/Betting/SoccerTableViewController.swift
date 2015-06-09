@@ -114,6 +114,8 @@ class SoccerTableViewController: UITableViewController {
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
         betMatchHomeTeamId = fixture.getMatchHomeTeamId
         betMatchAwayTeamId = fixture.getMatchAwayTeamId
+        teamName[1] = fixture.getMatchHomeTeamName
+        teamName[2] = fixture.getMatchAwayTeamName
         betMatchId = fixture.getMatchId
         if fixture.getMatchStatus == "Live" {
             performSegueWithIdentifier("soccerDetail", sender: self)
