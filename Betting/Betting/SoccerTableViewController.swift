@@ -14,12 +14,12 @@ var rControl : UIRefreshControl!
 var getData = SoccerData()
 
 class SoccerTableViewController: UITableViewController {
-    var backgroundImages = ["background 1.png", "background 2.png", "background 3.png"]
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
-
+        
         //Pull to refresh control
         rControl = UIRefreshControl()
         rControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -28,19 +28,21 @@ class SoccerTableViewController: UITableViewController {
         
         
         //NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("handleTimer:"), userInfo: nil, repeats: true)
-        getData.getFixtures()
-        tableView.reloadData()
         
-        //getData.getLiveData()
-        //getData.uploadBet("qs8RcHexOo", matchId: "2001950", teamId: "0", teamId2: "10772", betAmount: "700")
+        LoadingOverlay.shared.showOverlay(self.view)
+
+        getData.getFixtures()
+        
+        tableView.tableFooterView = UIView()
     }
 
     func refresh(sender:AnyObject)
     {
-        getData.getFixtures() 
+        getData.getFixtures()
     }
     
     func reloadTable() {
+        LoadingOverlay.shared.hideOverlayView()
         tableView.reloadData()
     }
     
@@ -105,6 +107,10 @@ class SoccerTableViewController: UITableViewController {
             cell.statusImage.hidden = false
         }
 
+        //Home and Away Images
+        
+        //Comp Label
+        cell.compLabel.text = fixture.getMatchCompId
         return cell
     }
     
@@ -117,7 +123,7 @@ class SoccerTableViewController: UITableViewController {
         teamName[1] = fixture.getMatchHomeTeamName
         teamName[2] = fixture.getMatchAwayTeamName
         betMatchId = fixture.getMatchId
-        if fixture.getMatchStatus == "Live" {
+        if fixture.getUpcomingTime().toInt() < 0 {
             performSegueWithIdentifier("soccerDetail", sender: self)
         } else {
             performSegueWithIdentifier("betPage", sender: self)

@@ -31,12 +31,11 @@ class SoccerData {
     
     //Variables
     var matchArray : NSMutableArray = []
-    var liveMatchArray : NSMutableArray = []
     
     //Functions
     func getFixtures() {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_livescore/format/json")!)
-//        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_fixtures/format/json")!)
+//        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_livescore/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -47,7 +46,7 @@ class SoccerData {
             } else {
                 let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
                 if jsonResult["status"] as! String == "success" {
-                    if let fixtures: AnyObject = jsonResult["livescore"] {
+                    if let fixtures: AnyObject = jsonResult["fixtures"] {
                         for var y = 0; y < fixtures.count; y++ {
                             if let allMatch: AnyObject = fixtures[y] {
                                 let objectBox: SoccerMatch = SoccerMatch()
@@ -80,11 +79,28 @@ class SoccerData {
                                     let setMatchTimeString = formatDate + " " + formatTime
                                     objectBox.setMatchtime(setMatchTimeString)
                                     
-                                    //Add To Array as Object
                                     self.matchArray.addObject(objectBox)
+
+                                    if let event: AnyObject = match["match_events"] {
+                                        for var loop = 0; loop < event.count; loop++ {
+                                            if let allEvent: AnyObject = event[loop] {
+                                                let eventBox : SoccerEvent = SoccerEvent()
+                                                eventBox.setEventPlayer(allEvent["event_player"] as! String)
+                                                eventBox.setEventId(allEvent["event_id"] as! String)
+                                                eventBox.setEventMatchId(allEvent["event_match_id"] as! String)
+                                                eventBox.setEventMinute(allEvent["event_minute"] as! String)
+                                                eventBox.setEventTeam(allEvent["event_team"] as! String)
+                                                eventBox.setEventType(allEvent["event_type"] as! String)
+                                                eventBox.setEventResult(allEvent["event_result"] as! String)
+                                                eventBox.setEventPlayerId(allEvent["event_player_id"] as! String)
+                                                objectBox.eventArray.addObject(eventBox)
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
+                        
                     }
                 } else {
                     println("no match")
@@ -96,6 +112,7 @@ class SoccerData {
             NSNotificationCenter.defaultCenter().postNotificationName(notifKey, object: self)
         })
         task.resume()
+
     }
     
     

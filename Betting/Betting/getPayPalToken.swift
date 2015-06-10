@@ -11,8 +11,12 @@ import UIKit
 class getPayPalToken: UIViewController {
     
     
+    var payPalAuthKey = "Basic QWUyeHFsMGdOOEVIa1dzeS1XcHBUc0p5b255RnB2dllIUlNVVlRqU0didEJFaU1ONEJBZHdkLUZtUEFfeFY0dlpwWEU1OGQtSEJhTHVPS3A6RUhQS1FTQVlfQVpJSmM5M3VpZWVDeTVRVm1IQlk4eDFDT3FTc3pKdU1YRlJ6UEFkT0FxNWlKTWtJMG9CdEcybGVSaHpBUzljUzVNTElwMmk="
+    
     override func viewDidLoad() {
-        testing()
+        //testing()
+        
+        
     }
     
     
@@ -22,7 +26,7 @@ class getPayPalToken: UIViewController {
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         var err: NSError?
-        request.setValue("Basic QWUyeHFsMGdOOEVIa1dzeS1XcHBUc0p5b255RnB2dllIUlNVVlRqU0didEJFaU1ONEJBZHdkLUZtUEFfeFY0dlpwWEU1OGQtSEJhTHVPS3A6RUhQS1FTQVlfQVpJSmM5M3VpZWVDeTVRVm1IQlk4eDFDT3FTc3pKdU1YRlJ6UEFkT0FxNWlKTWtJMG9CdEcybGVSaHpBUzljUzVNTElwMmk=", forHTTPHeaderField: "Authorization")
+        request.setValue(payPalAuthKey, forHTTPHeaderField: "Authorization")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let http_body = "grant_type=client_credentials".dataUsingEncoding(NSUTF8StringEncoding)

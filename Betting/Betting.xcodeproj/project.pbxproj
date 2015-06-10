@@ -38,6 +38,9 @@
 		72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C249011B1D55CB0038AC71 /* DetailViewController.swift */; };
 		72C249041B1D98D30038AC71 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */; };
 		72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */; };
+		72CBF8611B281A4C00430050 /* arsenal.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 72CBF85F1B281A4C00430050 /* arsenal.PNG */; };
+		72CBF8621B281A4C00430050 /* Everton_FC.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 72CBF8601B281A4C00430050 /* Everton_FC.PNG */; };
+		72CBF8641B281F5C00430050 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CBF8631B281F5C00430050 /* LoadingOverlay.swift */; };
 		72CEB0CE1B1580150097B317 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0CD1B1580150097B317 /* libz.dylib */; };
 		72CEB0D01B15801D0097B317 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0CF1B15801D0097B317 /* libsqlite3.dylib */; };
 		72CEB0E41B15817F0097B317 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB0E31B15817F0097B317 /* CoreLocation.framework */; };
@@ -53,6 +56,19 @@
 		72CEB1091B15850E0097B317 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1031B15850E0097B317 /* Parse.framework */; };
 		72CEB10D1B15850E0097B317 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CEB1071B15850E0097B317 /* ParseUI.framework */; };
 		72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEB10E1B159C770097B317 /* LoginViewController.swift */; };
+		72E1EB001B28241900B48931 /* CALayer+DTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF31B28241900B48931 /* CALayer+DTI.swift */; };
+		72E1EB011B28241900B48931 /* DTIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF51B28241900B48931 /* DTIActivityIndicatorView.swift */; };
+		72E1EB021B28241900B48931 /* DTIAnimChasingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF61B28241900B48931 /* DTIAnimChasingDots.swift */; };
+		72E1EB031B28241900B48931 /* DTIAnimDoubleBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF71B28241900B48931 /* DTIAnimDoubleBounce.swift */; };
+		72E1EB041B28241900B48931 /* DTIAnimProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF81B28241900B48931 /* DTIAnimProtocol.swift */; };
+		72E1EB051B28241900B48931 /* DTIAnimPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAF91B28241900B48931 /* DTIAnimPulse.swift */; };
+		72E1EB061B28241900B48931 /* DTIAnimRotatingPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFA1B28241900B48931 /* DTIAnimRotatingPlane.swift */; };
+		72E1EB071B28241900B48931 /* DTIAnimSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFB1B28241900B48931 /* DTIAnimSpotify.swift */; };
+		72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFC1B28241900B48931 /* DTIAnimWanderingCubes.swift */; };
+		72E1EB091B28241900B48931 /* DTIAnimWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFD1B28241900B48931 /* DTIAnimWave.swift */; };
+		72E1EB0A1B28241900B48931 /* DTIAnimWp8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFE1B28241900B48931 /* DTIAnimWp8.swift */; };
+		72E1EB0B1B28241900B48931 /* DTIIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EAFF1B28241900B48931 /* DTIIndicatorStyle.swift */; };
+		72E1EB0D1B283F6000B48931 /* SoccerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1EB0C1B283F6000B48931 /* SoccerEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +133,9 @@
 		72C249011B1D55CB0038AC71 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerMatch.swift; sourceTree = "<group>"; };
+		72CBF85F1B281A4C00430050 /* arsenal.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arsenal.PNG; sourceTree = "<group>"; };
+		72CBF8601B281A4C00430050 /* Everton_FC.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Everton_FC.PNG; sourceTree = "<group>"; };
+		72CBF8631B281F5C00430050 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		72CEB0CD1B1580150097B317 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		72CEB0CF1B15801D0097B317 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		72CEB0E31B15817F0097B317 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -132,6 +151,20 @@
 		72CEB1031B15850E0097B317 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		72CEB1071B15850E0097B317 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		72CEB10E1B159C770097B317 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72E1EAF31B28241900B48931 /* CALayer+DTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+DTI.swift"; sourceTree = "<group>"; };
+		72E1EAF41B28241900B48931 /* DTIActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTIActivityIndicator.h; sourceTree = "<group>"; };
+		72E1EAF51B28241900B48931 /* DTIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIActivityIndicatorView.swift; sourceTree = "<group>"; };
+		72E1EAF61B28241900B48931 /* DTIAnimChasingDots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimChasingDots.swift; sourceTree = "<group>"; };
+		72E1EAF71B28241900B48931 /* DTIAnimDoubleBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimDoubleBounce.swift; sourceTree = "<group>"; };
+		72E1EAF81B28241900B48931 /* DTIAnimProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimProtocol.swift; sourceTree = "<group>"; };
+		72E1EAF91B28241900B48931 /* DTIAnimPulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimPulse.swift; sourceTree = "<group>"; };
+		72E1EAFA1B28241900B48931 /* DTIAnimRotatingPlane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimRotatingPlane.swift; sourceTree = "<group>"; };
+		72E1EAFB1B28241900B48931 /* DTIAnimSpotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimSpotify.swift; sourceTree = "<group>"; };
+		72E1EAFC1B28241900B48931 /* DTIAnimWanderingCubes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimWanderingCubes.swift; sourceTree = "<group>"; };
+		72E1EAFD1B28241900B48931 /* DTIAnimWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimWave.swift; sourceTree = "<group>"; };
+		72E1EAFE1B28241900B48931 /* DTIAnimWp8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIAnimWp8.swift; sourceTree = "<group>"; };
+		72E1EAFF1B28241900B48931 /* DTIIndicatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIIndicatorStyle.swift; sourceTree = "<group>"; };
+		72E1EB0C1B283F6000B48931 /* SoccerEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +212,7 @@
 				72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */,
 				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
 				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
+				72E1EB0C1B283F6000B48931 /* SoccerEvent.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -207,6 +241,7 @@
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
 				72CEB10E1B159C770097B317 /* LoginViewController.swift */,
+				72E1EAF21B28240300B48931 /* Animation for Indicator */,
 				72D960C71B205168004D6A1D /* Soccer */,
 				72BFC1081B1469E9005683CD /* Main.storyboard */,
 				72BFC10B1B1469E9005683CD /* Images.xcassets */,
@@ -246,6 +281,8 @@
 		72BFC1281B146EDD005683CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				72CBF85F1B281A4C00430050 /* arsenal.PNG */,
+				72CBF8601B281A4C00430050 /* Everton_FC.PNG */,
 				72BFC1291B146FA4005683CD /* background 1.png */,
 				72BFC12A1B146FA4005683CD /* background 2.png */,
 				72BFC12B1B146FA4005683CD /* background 3.png */,
@@ -315,6 +352,27 @@
 				7232EC8D1B2577DE00AC5763 /* Data */,
 			);
 			name = Soccer;
+			sourceTree = "<group>";
+		};
+		72E1EAF21B28240300B48931 /* Animation for Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				72E1EAF31B28241900B48931 /* CALayer+DTI.swift */,
+				72E1EAF41B28241900B48931 /* DTIActivityIndicator.h */,
+				72E1EAF51B28241900B48931 /* DTIActivityIndicatorView.swift */,
+				72E1EAF61B28241900B48931 /* DTIAnimChasingDots.swift */,
+				72E1EAF71B28241900B48931 /* DTIAnimDoubleBounce.swift */,
+				72E1EAF81B28241900B48931 /* DTIAnimProtocol.swift */,
+				72E1EAF91B28241900B48931 /* DTIAnimPulse.swift */,
+				72E1EAFA1B28241900B48931 /* DTIAnimRotatingPlane.swift */,
+				72E1EAFB1B28241900B48931 /* DTIAnimSpotify.swift */,
+				72E1EAFC1B28241900B48931 /* DTIAnimWanderingCubes.swift */,
+				72E1EAFD1B28241900B48931 /* DTIAnimWave.swift */,
+				72E1EAFE1B28241900B48931 /* DTIAnimWp8.swift */,
+				72E1EAFF1B28241900B48931 /* DTIIndicatorStyle.swift */,
+				72CBF8631B281F5C00430050 /* LoadingOverlay.swift */,
+			);
+			name = "Animation for Indicator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +461,7 @@
 				72BFC1341B146FA4005683CD /* background 1.png in Resources */,
 				72BFC1391B146FA4005683CD /* football blue.png in Resources */,
 				72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */,
+				72CBF8611B281A4C00430050 /* arsenal.PNG in Resources */,
 				72BFC10F1B1469E9005683CD /* LaunchScreen.xib in Resources */,
 				72BFC13B1B146FA4005683CD /* News-Icon blue.png in Resources */,
 				72BFC1381B146FA4005683CD /* dota.png in Resources */,
@@ -410,6 +469,7 @@
 				72BFC13E1B146FA4005683CD /* settings.png in Resources */,
 				72BFC1361B146FA4005683CD /* background 3.png in Resources */,
 				72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */,
+				72CBF8621B281A4C00430050 /* Everton_FC.PNG in Resources */,
 				72BFC1371B146FA4005683CD /* dota blue.png in Resources */,
 				72BFC13D1B146FA4005683CD /* settings blue.png in Resources */,
 				72BFC13C1B146FA4005683CD /* News-Icon.png in Resources */,
@@ -431,15 +491,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C249041B1D98D30038AC71 /* DetailTableViewCell.swift in Sources */,
+				72E1EB071B28241900B48931 /* DTIAnimSpotify.swift in Sources */,
+				72E1EB0A1B28241900B48931 /* DTIAnimWp8.swift in Sources */,
 				72BFC1401B147E8A005683CD /* SoccerData.swift in Sources */,
+				72E1EB051B28241900B48931 /* DTIAnimPulse.swift in Sources */,
+				72E1EB0D1B283F6000B48931 /* SoccerEvent.swift in Sources */,
+				72E1EB091B28241900B48931 /* DTIAnimWave.swift in Sources */,
 				72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */,
+				72CBF8641B281F5C00430050 /* LoadingOverlay.swift in Sources */,
 				72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */,
+				72E1EB001B28241900B48931 /* CALayer+DTI.swift in Sources */,
 				7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */,
+				72E1EB0B1B28241900B48931 /* DTIIndicatorStyle.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
+				72E1EB041B28241900B48931 /* DTIAnimProtocol.swift in Sources */,
 				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
+				72E1EB061B28241900B48931 /* DTIAnimRotatingPlane.swift in Sources */,
 				72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */,
+				72E1EB031B28241900B48931 /* DTIAnimDoubleBounce.swift in Sources */,
+				72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */,
+				72E1EB021B28241900B48931 /* DTIAnimChasingDots.swift in Sources */,
+				72E1EB011B28241900B48931 /* DTIActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

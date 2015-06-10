@@ -9,6 +9,7 @@
 import UIKit
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var sMatch = SoccerMatch()
     //Home Team
     @IBOutlet weak var homeTeamScore: UILabel!
     @IBOutlet weak var homeTeamRate: UILabel!
@@ -33,9 +34,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
+
         detailTableView.delegate = self
         detailTableView.reloadData()
-        
+        println(sMatch.eventArray.count)
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
         
         //Home Team
@@ -73,24 +76,17 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func reloadTable() {
+        detailTableView.reloadData()
     }
-    */
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return getData.matchArray.count
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
+        return fixture.getEvent().count
     }
     
     
@@ -98,8 +94,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DetailTableViewCell
         
-        cell.homeTeamEventPlayer.text = "Dana"
-         
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
+        let eventCapture = fixture.getEvent()
+        println(eventCapture.count)
+        for var lop = 0; lop < 1; lop++ {
+            let event : SoccerEvent = eventCapture.objectAtIndex(lop) as! SoccerEvent
+            println(event.getEventPlayer)
+            cell.homeTeamEventPlayer.text = event.getEventPlayer
+            cell.eventTime.text = event.getEventMinute
+        }
+        
         return cell
     }
 

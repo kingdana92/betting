@@ -10,6 +10,13 @@ import UIKit
 
 class SoccerTableViewCell: UITableViewCell {
 
+    //Team Images
+    @IBOutlet weak var homeTeamImage: UIImageView!
+    @IBOutlet weak var awayTeamImage: UIImageView!
+    
+    //Comp Label
+    @IBOutlet weak var compLabel: UILabel!
+    
     //Score Label
     @IBOutlet weak var homeTeamScore: UILabel!
     @IBOutlet weak var visitTeamScore: UILabel!
