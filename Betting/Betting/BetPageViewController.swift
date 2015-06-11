@@ -18,6 +18,8 @@ var teamName = ["", "Arsenal", "Chelsea"]
 
 class BetPageViewController: UIViewController, PayPalPaymentDelegate {
 
+    var activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+
     var teamChoose = 0
     var sData = SoccerData()
     
@@ -92,6 +94,9 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "overlayEnder", name: "paypalDone", object: nil)
+
         //Paypal
         payPalConfig.acceptCreditCards = acceptCreditCards;
         payPalConfig.merchantName = "Betting Yangon"
@@ -144,10 +149,12 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
             // send completed confirmaion to your server
             println("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             if let response: AnyObject = completedPayment.confirmation["response"] {
-                
+            
                 if self.teamChoose == 1 {
+                    self.overlayCaller()
                     self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: response["id"]as! String)
                 } else {
+                    self.overlayCaller()
                     self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: response["id"]as! String)
                 }
                 
@@ -155,4 +162,33 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
         })
     }
 
+    func overlayCaller() {
+//        LoadingOverlay.shared.showOverlay(self.view)
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
+        boxView.backgroundColor = UIColor.whiteColor()
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityView.startAnimating()
+        
+        var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.textColor = UIColor.grayColor()
+        textLabel.text = "Processing"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        view.addSubview(boxView)
+    }
+    func overlayEnder() {
+        dispatch_async(dispatch_get_main_queue(), {
+            boxView.removeFromSuperview()
+            self.activityView.stopAnimating()
+        })
+        
+
+    }
+    
 }

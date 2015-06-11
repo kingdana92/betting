@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225BF951B298E6C008BF51F /* SavingIndicator.swift */; };
 		7232EC791B256E3F00AC5763 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC711B256E3F00AC5763 /* libPayPalMobile.a */; };
 		7232EC7B1B256E8E00AC5763 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7A1B256E8E00AC5763 /* Accelerate.framework */; };
 		7232EC7D1B256E9B00AC5763 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7225BF951B298E6C008BF51F /* SavingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingIndicator.swift; sourceTree = "<group>"; };
 		7232EC691B256E3F00AC5763 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
 		7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
 		7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				72E1EAFE1B28241900B48931 /* DTIAnimWp8.swift */,
 				72E1EAFF1B28241900B48931 /* DTIIndicatorStyle.swift */,
 				72CBF8631B281F5C00430050 /* LoadingOverlay.swift */,
+				7225BF951B298E6C008BF51F /* SavingIndicator.swift */,
 			);
 			name = "Animation for Indicator";
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
 				72E1EB061B28241900B48931 /* DTIAnimRotatingPlane.swift in Sources */,
+				7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */,
 				72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */,
 				72E1EB031B28241900B48931 /* DTIAnimDoubleBounce.swift in Sources */,
 				72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */,

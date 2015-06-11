@@ -38,7 +38,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
         detailTableView.delegate = self
         detailTableView.reloadData()
-        println(sMatch.eventArray.count)
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
         
         //Home Team
@@ -74,11 +73,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     func reloadTable() {
         detailTableView.reloadData()
     }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
@@ -89,22 +88,23 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return fixture.getEvent().count
     }
     
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DetailTableViewCell
         
-        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(indexPath.row) as! SoccerMatch
+        let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
         let eventCapture = fixture.getEvent()
-        println(eventCapture.count)
-        for var lop = 0; lop < 1; lop++ {
-            let event : SoccerEvent = eventCapture.objectAtIndex(lop) as! SoccerEvent
-            println(event.getEventPlayer)
-            cell.homeTeamEventPlayer.text = event.getEventPlayer
-            cell.eventTime.text = event.getEventMinute
+        for var lop = 0; lop < eventCapture.count; lop++ {
+            let event : SoccerEvent = eventCapture.objectAtIndex(indexPath.row) as! SoccerEvent
+            if event.getEventTeam == "localteam" {
+                cell.homeTeamEventPlayer.text = event.getEventPlayer
+                cell.awayTeamEventPlayer.text = ""
+            } else {
+                cell.homeTeamEventPlayer.text = ""
+                cell.awayTeamEventPlayer.text = event.getEventPlayer
+            }
+            cell.eventTime.text = event.getEventMinute + "'"
         }
         
         return cell
     }
-
 }

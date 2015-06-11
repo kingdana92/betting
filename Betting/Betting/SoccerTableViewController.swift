@@ -124,7 +124,8 @@ class SoccerTableViewController: UITableViewController {
         teamName[2] = fixture.getMatchAwayTeamName
         betMatchId = fixture.getMatchId
         if fixture.getUpcomingTime().toInt() < 0 {
-            performSegueWithIdentifier("soccerDetail", sender: self)
+            //performSegueWithIdentifier("soccerDetail", sender: self)
+            performSegueWithIdentifier("betPage", sender: self)
         } else {
             performSegueWithIdentifier("betPage", sender: self)
         }

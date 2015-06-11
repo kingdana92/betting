@@ -2,7 +2,6 @@ import UIKit
 
 public class LoadingOverlay {
     
-    var overlayView = UIView()
     var myActivityIndicatorView: DTIActivityIndicatorView = DTIActivityIndicatorView()
     
     class var shared: LoadingOverlay {
@@ -13,8 +12,6 @@ public class LoadingOverlay {
     }
     
     public func showOverlay(view: UIView) {
-        
-        
         
         myActivityIndicatorView.frame = CGRectMake(0, 0, 40, 40)
         myActivityIndicatorView.center = view.center

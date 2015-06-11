@@ -118,7 +118,7 @@ class SoccerData {
     
     //Betting Process
     func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String, payPalId : String) {
-        
+        var bpvc = BetPageViewController()
         var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
@@ -144,15 +144,17 @@ class SoccerData {
             }
             else {
                 if let parseJSON = json {
-                    var success = parseJSON["success"] as? Int
+                    var success = parseJSON["success"] as? String
                     println("Success: \(success)")
-                    
                 }
                 else {
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                     println("Error could not parse JSON: \(jsonStr)")
                 }
             }
+            //Call anything here (to end indicator or some sorts)
+            NSNotificationCenter.defaultCenter().postNotificationName("paypalDone", object: self)
+
         })
         task.resume()
     }
