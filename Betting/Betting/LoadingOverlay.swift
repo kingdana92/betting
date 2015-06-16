@@ -1,8 +1,10 @@
 import UIKit
 
+var boxView = UIView()
+
 public class LoadingOverlay {
-    
-    var myActivityIndicatorView: DTIActivityIndicatorView = DTIActivityIndicatorView()
+
+    var activityView: DTIActivityIndicatorView = DTIActivityIndicatorView()
     
     class var shared: LoadingOverlay {
         struct Static {
@@ -12,20 +14,36 @@ public class LoadingOverlay {
     }
     
     public func showOverlay(view: UIView) {
+        var xPos = view.bounds.size.width / 2
+        var yPos = view.bounds.size.height / 2
+        boxView = UIView(frame: CGRect(x: xPos - 70, y: yPos - 50, width: 140, height: 50))
+        boxView.backgroundColor = UIColor.blackColor()
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
         
-        myActivityIndicatorView.frame = CGRectMake(0, 0, 40, 40)
-        myActivityIndicatorView.center = view.center
-        myActivityIndicatorView.indicatorColor = UIColor.blackColor()
-        myActivityIndicatorView.indicatorStyle = DTIIndicatorStyle.convInv(.chasingDots)
+        //Here the spinnier is initialized
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         
-        view.addSubview(myActivityIndicatorView)
+        activityView.indicatorColor = UIColor.whiteColor()
+        activityView.indicatorStyle = DTIIndicatorStyle.convInv(.pulse)
+        activityView.startActivity()
         
-        myActivityIndicatorView.startActivity()
+        var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.textColor = UIColor.grayColor()
+        textLabel.text = "Loading"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        view.addSubview(boxView)
+
     }
     
     public func hideOverlayView() {
-        myActivityIndicatorView.removeFromSuperview()
-        myActivityIndicatorView.stopActivity()
+        dispatch_async(dispatch_get_main_queue(), {
+            boxView.removeFromSuperview()
+            self.activityView.stopActivity()
+        })
 
     }
 }

@@ -33,20 +33,30 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Table Style
+        detailTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        //Notif Receiver
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
-
+        
+        //Table Data Source
         detailTableView.delegate = self
         detailTableView.reloadData()
+        
+        //Calling Data
         let fixture: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
+        let eventCapture = fixture.getEvent()
+        let event : SoccerEvent = eventCapture.objectAtIndex(activeRow) as! SoccerEvent
         
         //Home Team
         homeTeamScore.text = fixture.getMatchHomeTeamScore
         homeTeamName.text = fixture.getMatchHomeTeamName
+        
         //Away Team
         awayTeamScore.text = fixture.getMatchAwayTeamScore
         awayTeamName.text = fixture.getMatchAwayTeamName
         
+        //Pool Calculate
         let homeTeamTotal = (fixture.getMatchLocalTeamTotal as NSString).doubleValue
         let awayTeamTotal = (fixture.getMatchVisitorTeamTotal as NSString).doubleValue
         let total = (fixture.getMatchPoolTotal as NSString).doubleValue
@@ -66,7 +76,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             awayTeamRate.text = "0%"
         }
         
-
+        //Commentary
+        
+        //Live Status
+        liveEventTime.text = fixture.getMatchStatus + "'"
     }
 
     override func didReceiveMemoryWarning() {

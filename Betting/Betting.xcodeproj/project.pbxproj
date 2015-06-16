@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225BF951B298E6C008BF51F /* SavingIndicator.swift */; };
+		722D4C581B2FE8050067F83B /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C571B2FE8050067F83B /* CheckInternet.swift */; };
 		7232EC791B256E3F00AC5763 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC711B256E3F00AC5763 /* libPayPalMobile.a */; };
 		7232EC7B1B256E8E00AC5763 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7A1B256E8E00AC5763 /* Accelerate.framework */; };
 		7232EC7D1B256E9B00AC5763 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */; };
@@ -16,6 +17,9 @@
 		7232EC881B25727600AC5763 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC871B25727600AC5763 /* Social.framework */; };
 		7232EC8A1B25727E00AC5763 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC891B25727E00AC5763 /* Accounts.framework */; };
 		7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */; };
+		72A1EC1B1B2EBC0C00BEC908 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */; };
+		72A1EC1F1B2ED62000BEC908 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1E1B2ED62000BEC908 /* submit.png */; };
+		72A1EC211B2EE04B00BEC908 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC201B2EE04B00BEC908 /* chat.png */; };
 		72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */; };
 		72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BFC1021B1469E9005683CD /* AppDelegate.swift */; };
 		72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BFC1081B1469E9005683CD /* Main.storyboard */; };
@@ -84,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		7225BF951B298E6C008BF51F /* SavingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingIndicator.swift; sourceTree = "<group>"; };
+		722D4C571B2FE8050067F83B /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		7232EC691B256E3F00AC5763 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
 		7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
 		7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
@@ -108,6 +113,9 @@
 		7232EC871B25727600AC5763 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7232EC891B25727E00AC5763 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetPageViewController.swift; sourceTree = "<group>"; };
+		72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		72A1EC1E1B2ED62000BEC908 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
+		72A1EC201B2EE04B00BEC908 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getPayPalToken.swift; sourceTree = "<group>"; };
 		72BFC0FD1B1469E9005683CD /* Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Betting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFC1011B1469E9005683CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				72BFC1021B1469E9005683CD /* AppDelegate.swift */,
+				722D4C571B2FE8050067F83B /* CheckInternet.swift */,
 				72CEB10E1B159C770097B317 /* LoginViewController.swift */,
 				72E1EAF21B28240300B48931 /* Animation for Indicator */,
 				72D960C71B205168004D6A1D /* Soccer */,
@@ -283,14 +292,17 @@
 		72BFC1281B146EDD005683CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				72A1EC201B2EE04B00BEC908 /* chat.png */,
 				72CBF85F1B281A4C00430050 /* arsenal.PNG */,
 				72CBF8601B281A4C00430050 /* Everton_FC.PNG */,
 				72BFC1291B146FA4005683CD /* background 1.png */,
+				72A1EC1E1B2ED62000BEC908 /* submit.png */,
 				72BFC12A1B146FA4005683CD /* background 2.png */,
 				72BFC12B1B146FA4005683CD /* background 3.png */,
 				72BFC12C1B146FA4005683CD /* dota blue.png */,
 				72BFC12D1B146FA4005683CD /* dota.png */,
 				72BFC12E1B146FA4005683CD /* football blue.png */,
+				72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */,
 				72BFC12F1B146FA4005683CD /* football.png */,
 				72BFC1301B146FA4005683CD /* News-Icon blue.png */,
 				72BFC1311B146FA4005683CD /* News-Icon.png */,
@@ -461,7 +473,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				72BFC13A1B146FA4005683CD /* football.png in Resources */,
+				72A1EC1B1B2EBC0C00BEC908 /* checkmark.png in Resources */,
 				72BFC1341B146FA4005683CD /* background 1.png in Resources */,
+				72A1EC1F1B2ED62000BEC908 /* submit.png in Resources */,
 				72BFC1391B146FA4005683CD /* football blue.png in Resources */,
 				72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */,
 				72CBF8611B281A4C00430050 /* arsenal.PNG in Resources */,
@@ -470,6 +484,7 @@
 				72BFC1381B146FA4005683CD /* dota.png in Resources */,
 				72BFC1351B146FA4005683CD /* background 2.png in Resources */,
 				72BFC13E1B146FA4005683CD /* settings.png in Resources */,
+				72A1EC211B2EE04B00BEC908 /* chat.png in Resources */,
 				72BFC1361B146FA4005683CD /* background 3.png in Resources */,
 				72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */,
 				72CBF8621B281A4C00430050 /* Everton_FC.PNG in Resources */,
@@ -504,6 +519,7 @@
 				72CBF8641B281F5C00430050 /* LoadingOverlay.swift in Sources */,
 				72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */,
 				72E1EB001B28241900B48931 /* CALayer+DTI.swift in Sources */,
+				722D4C581B2FE8050067F83B /* CheckInternet.swift in Sources */,
 				7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */,
 				72E1EB0B1B28241900B48931 /* DTIIndicatorStyle.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,

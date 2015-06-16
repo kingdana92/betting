@@ -7,7 +7,6 @@
 //
 
 import UIKit
-var boxView = UIView()
 
 class getPayPalToken: UIViewController {
     

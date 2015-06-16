@@ -11,11 +11,10 @@ import UIKit
 import Parse
 
 let notifKey = "gettingFixtures"
+let compList = ["1005":"UEFA Champion League", "1007":"UEFA Europa League", "1198":"FA CUP", "1204":"English Premier League", "1205":"English Championship", "1221":"Ligue 1", "1229":"Bundesliga", "1265":"Serie B", "1269":"Serie A", "1397":"Copa Del Rey", "1399":"Liga BBVA"]
 
 class SoccerData {
-    
-    
-    
+
     //API KEY
     var footballApiKey = "849ab98c-654a-ba43-31b5c7258ed3"
     
@@ -140,20 +139,23 @@ class SoccerData {
             if(err != nil) {
                 println(err!.localizedDescription)
                 let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                NSNotificationCenter.defaultCenter().postNotificationName("paypalFail", object: self)
                 println("Error could not parse JSON: '\(jsonStr)'")
             }
             else {
                 if let parseJSON = json {
                     var success = parseJSON["success"] as? String
+                    NSNotificationCenter.defaultCenter().postNotificationName("paypalDone", object: self)
                     println("Success: \(success)")
                 }
                 else {
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                     println("Error could not parse JSON: \(jsonStr)")
+                    NSNotificationCenter.defaultCenter().postNotificationName("paypalFail", object: self)
+
                 }
             }
             //Call anything here (to end indicator or some sorts)
-            NSNotificationCenter.defaultCenter().postNotificationName("paypalDone", object: self)
 
         })
         task.resume()

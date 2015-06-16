@@ -9,20 +9,23 @@
 import UIKit
 import Parse
 
+let userObjectId = PFUser.currentUser()!.objectId!
 var betMatchId = ""
 var betLocal = ""
 var betVisitor = ""
 var betMatchHomeTeamId = ""
 var betMatchAwayTeamId = ""
 var teamName = ["", "Arsenal", "Chelsea"]
+var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+//Bet
 
 class BetPageViewController: UIViewController, PayPalPaymentDelegate {
 
     var activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-
+    var paypalID = ""
     var teamChoose = 0
     var sData = SoccerData()
-    
+    var checkMark = UIImageView()
     //Paypal
     var environment:String = PayPalEnvironmentSandbox {
         willSet(newEnvironment) {
@@ -96,6 +99,8 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "overlayEnder", name: "paypalDone", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "callUpload", name: "paypalFail", object: nil)
+
 
         //Paypal
         payPalConfig.acceptCreditCards = acceptCreditCards;
@@ -142,53 +147,77 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
         println("PayPal Payment Cancelled")
         paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    
     func payPalPaymentViewController(paymentViewController: PayPalPaymentViewController!, didCompletePayment completedPayment: PayPalPayment!) {
         println("PayPal Payment Success !")
         paymentViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             // send completed confirmaion to your server
             println("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             if let response: AnyObject = completedPayment.confirmation["response"] {
-            
-                if self.teamChoose == 1 {
-                    self.overlayCaller()
-                    self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: response["id"]as! String)
-                } else {
-                    self.overlayCaller()
-                    self.sData.uploadBet(PFUser.currentUser()!.objectId!, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: response["id"]as! String)
-                }
-                
+                self.paypalID = response["id"]as! String
+                self.callUpload(betMatchId)
             }
         })
     }
 
     func overlayCaller() {
-//        LoadingOverlay.shared.showOverlay(self.view)
+        self.view.userInteractionEnabled = false
         boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
         boxView.backgroundColor = UIColor.whiteColor()
         boxView.alpha = 0.8
         boxView.layer.cornerRadius = 10
-        
+        //CheckMark image view
+        checkMark.frame = CGRect(x: +10, y: +10, width:30, height:30)
+        checkMark.image = UIImage(named: "checkmark.png")
+        checkMark.hidden = true
         //Here the spinnier is initialized
         activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         activityView.startAnimating()
         
-        var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
         textLabel.textColor = UIColor.grayColor()
         textLabel.text = "Processing"
         
         boxView.addSubview(activityView)
         boxView.addSubview(textLabel)
+        boxView.addSubview(checkMark)
         
         view.addSubview(boxView)
     }
     func overlayEnder() {
         dispatch_async(dispatch_get_main_queue(), {
-            boxView.removeFromSuperview()
+            self.view.userInteractionEnabled = true
+            textLabel.text = "Done"
+            self.checkMark.hidden = false
             self.activityView.stopAnimating()
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+                Int64(3 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                boxView.removeFromSuperview()
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         })
-        
-
     }
-    
+    func callUpload(nameBet : String) {
+        let nameBet = PFObject(className:"betList")
+        if self.teamChoose == 1 {
+            self.overlayCaller()
+            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: paypalID)
+            nameBet["userObjectId"] = userObjectId
+            nameBet["matchId"] = betMatchId
+            nameBet["teamId"] = betMatchHomeTeamId
+            nameBet["teamId2"] = "0"
+            nameBet["betAmount"] = self.betAmount.text
+            nameBet["paypalId"] = paypalID
+            nameBet.pinInBackground()
+        } else {
+            self.overlayCaller()
+            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: paypalID)
+            nameBet["userObjectId"] = userObjectId
+            nameBet["matchId"] = betMatchId
+            nameBet["teamId"] = "0"
+            nameBet["teamId2"] = betMatchAwayTeamId
+            nameBet["betAmount"] = self.betAmount.text
+            nameBet["paypalId"] = paypalID
+            nameBet.pinInBackground()
+        }
+    }
 }
