@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Foundation
 import SystemConfiguration
-
+import Bolts
 
 class LoginViewController: UIViewController {
 
@@ -62,6 +62,25 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let query = PFQuery(className: "betList")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        println(object["matchId"])
+                    }
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

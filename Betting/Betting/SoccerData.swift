@@ -145,13 +145,13 @@ class SoccerData {
             else {
                 if let parseJSON = json {
                     var success = parseJSON["success"] as? String
-                    NSNotificationCenter.defaultCenter().postNotificationName("paypalDone", object: self)
+                    NSNotificationCenter.defaultCenter().postNotificationName("paymentDone", object: self)
                     println("Success: \(success)")
                 }
                 else {
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                     println("Error could not parse JSON: \(jsonStr)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("paypalFail", object: self)
+                    NSNotificationCenter.defaultCenter().postNotificationName("parseLocal", object: self)
 
                 }
             }

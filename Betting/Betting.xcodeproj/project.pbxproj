@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225BF951B298E6C008BF51F /* SavingIndicator.swift */; };
 		722D4C581B2FE8050067F83B /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C571B2FE8050067F83B /* CheckInternet.swift */; };
+		722D4C5A1B3010EB0067F83B /* SoccerLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C591B3010EB0067F83B /* SoccerLocalDataStore.swift */; };
+		722D4C5E1B302ABC0067F83B /* MyBetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */; };
 		7232EC791B256E3F00AC5763 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC711B256E3F00AC5763 /* libPayPalMobile.a */; };
 		7232EC7B1B256E8E00AC5763 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7A1B256E8E00AC5763 /* Accelerate.framework */; };
 		7232EC7D1B256E9B00AC5763 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */; };
@@ -89,6 +91,8 @@
 /* Begin PBXFileReference section */
 		7225BF951B298E6C008BF51F /* SavingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingIndicator.swift; sourceTree = "<group>"; };
 		722D4C571B2FE8050067F83B /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
+		722D4C591B3010EB0067F83B /* SoccerLocalDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerLocalDataStore.swift; sourceTree = "<group>"; };
+		722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyBetTableViewController.swift; path = ../MyBetTableViewController.swift; sourceTree = "<group>"; };
 		7232EC691B256E3F00AC5763 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
 		7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
 		7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			children = (
 				72B5E0C71B26FE9A00AE3F1C /* getPayPalToken.swift */,
 				72BFC13F1B147E8A005683CD /* SoccerData.swift */,
+				722D4C591B3010EB0067F83B /* SoccerLocalDataStore.swift */,
 				72C2D3F21B16ED5D00E5CCB0 /* SoccerMatch.swift */,
 				72E1EB0C1B283F6000B48931 /* SoccerEvent.swift */,
 			);
@@ -363,6 +368,7 @@
 				72C249011B1D55CB0038AC71 /* DetailViewController.swift */,
 				72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */,
 				7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */,
+				722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */,
 				7232EC8D1B2577DE00AC5763 /* Data */,
 			);
 			name = Soccer;
@@ -521,6 +527,7 @@
 				72E1EB001B28241900B48931 /* CALayer+DTI.swift in Sources */,
 				722D4C581B2FE8050067F83B /* CheckInternet.swift in Sources */,
 				7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */,
+				722D4C5E1B302ABC0067F83B /* MyBetTableViewController.swift in Sources */,
 				72E1EB0B1B28241900B48931 /* DTIIndicatorStyle.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
 				72E1EB041B28241900B48931 /* DTIAnimProtocol.swift in Sources */,
@@ -532,6 +539,7 @@
 				72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */,
 				72E1EB031B28241900B48931 /* DTIAnimDoubleBounce.swift in Sources */,
 				72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */,
+				722D4C5A1B3010EB0067F83B /* SoccerLocalDataStore.swift in Sources */,
 				72E1EB021B28241900B48931 /* DTIAnimChasingDots.swift in Sources */,
 				72E1EB011B28241900B48931 /* DTIActivityIndicatorView.swift in Sources */,
 			);
