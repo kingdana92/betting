@@ -7,99 +7,178 @@
 //
 
 import UIKit
+import Parse
 
 class MyBetTableViewController: UITableViewController {
-    let data = [["0,0", "0,1", "0,2"], ["1,0", "1,1", "1,2"]]
-    let headerTitles = ["Some Data 1", "KickAss"]
+    var firstSection = 0
+    var secondSection = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 130
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: "retryDone", object: nil)
+
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let query = PFQuery(className: "betList")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            self.firstSection = objects!.count
+        }
+    }
 
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return data.count
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return data[section].count
+        
+        //Incomplete Number of Row
+        if section == 0 {
+            return firstSection
+        }
+        //Complete Number of Row
+        if section == 1 {
+            
+            return 1
+        }
+        
+        return 1
     }
 
-    
+
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell!
         
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("betCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("incomBetCell", forIndexPath: indexPath) as! IncompleteBetTableViewCell
+            //Incomplete Cell Section
+            
+            //Button
+            cell.retryLabel.tag = indexPath.row
+            cell.refundLabel.tag = indexPath.row
+            cell.retryLabel.addTarget(self, action: "retryBet:", forControlEvents: .TouchUpInside)
+            cell.refundLabel.addTarget(self, action: "refundBet:", forControlEvents: .TouchUpInside)
+            
+            //Query
+            let query = PFQuery(className: "betList")
+            query.fromLocalDatastore()
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    if let objects = objects as? [PFObject] {
+                        var object = objects[indexPath.row]
+                        cell.homeTeamIncomplete.text = object["homeTeam"] as? String
+                        cell.awayTeamIncomplete.text = object["awayTeam"] as? String
+                        if object["teamId"] as? String == "0" {
+                            cell.awayTeamBetAmountIncomplete.text = object["betAmount"] as? String
+                            
+                        } else {
+                            cell.homeTeamBetAmountIncomplete.text = object["betAmount"] as? String
+                            
+                        }
+                    }
+                } else {
+                    // Log details of the failure
+                    println("Error: \(error!) \(error!.userInfo!)")
+                }
+            }
+            
             return cell
 
         } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("imcomBetCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("betCell", forIndexPath: indexPath) as! CompleteBetTableViewCell
+            //Complete Cell Section
+            
+            
+            
+            
+            
+            
+            
             return cell
-
         }
         
         return cell
-
     }
     
-
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section < headerTitles.count {
-            return headerTitles[section]
+        if section == 0 {
+            return "Incomplete Bet"
         }
-        
+        if section == 1 {
+            return "Complete Bet"
+        }
         return nil
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    func calculatetime(upcomingMatchTime : String) -> String {
+        var upcomingTime = ""
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")
+        let dateFString = dateFormatter.dateFromString(upcomingMatchTime)
+        let upcomingDate = NSInteger(NSDate().timeIntervalSinceDate(dateFString!))
+        var minutes = (upcomingDate / 60) % 60
+        var correctMinute = minutes - minutes * 2
+        var hours = (upcomingDate / 3600) - (upcomingDate / 3600 * 2)
+        if correctMinute < 10 {
+            upcomingTime = "\(hours)hr 0\(correctMinute)min"
+            return upcomingTime
+        } else {
+            upcomingTime = "\(hours)hr \(correctMinute)min"
+            return upcomingTime
+        }
+        
     }
-    */
+    @IBAction func retryBet(sender: UIButton) {
+        println("retry")
+        let query = PFQuery(className: "betList")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects as? [PFObject] {
+                    var object = objects[sender.tag]
+                    var user = object["userObjectId"] as! String
+                    var match = object["matchId"] as! String
+                    var homeTeam = object["teamId"] as! String
+                    var awayTeam = object["teamId2"] as! String
+                    var amount = object["betAmount"] as! String
+                    var paypal = object["paypalId"] as! String
+                    getData.uploadBet(user, matchId: match, teamId: homeTeam, teamId2: awayTeam, betAmount: amount, payPalId: paypal, from: "retry", object : object)
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    @IBAction func refundBet(sender: UIButton) {
+        println("refund")
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+    
+    func reloadTable() {
+        
+        println("reload called")
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

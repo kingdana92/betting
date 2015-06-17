@@ -111,13 +111,11 @@ class SoccerData {
             NSNotificationCenter.defaultCenter().postNotificationName(notifKey, object: self)
         })
         task.resume()
-
     }
     
     
     //Betting Process
-    func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String, payPalId : String) {
-        var bpvc = BetPageViewController()
+    func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String, payPalId : String, from : String, object : PFObject) {
         var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
@@ -139,24 +137,30 @@ class SoccerData {
             if(err != nil) {
                 println(err!.localizedDescription)
                 let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                NSNotificationCenter.defaultCenter().postNotificationName("paypalFail", object: self)
                 println("Error could not parse JSON: '\(jsonStr)'")
+                if from == "betPage" {
+                    NSNotificationCenter.defaultCenter().postNotificationName("parseLocal", object: self)
+                } else {
+                    println("FAIL RETRY")
+                }
             }
             else {
                 if let parseJSON = json {
                     var success = parseJSON["success"] as? String
-                    NSNotificationCenter.defaultCenter().postNotificationName("paymentDone", object: self)
                     println("Success: \(success)")
+                    if from == "betPage" {
+                        NSNotificationCenter.defaultCenter().postNotificationName("paymentDone", object: self)
+                    } else {
+                        println("RETRY SUCCESSFUL")
+                        NSNotificationCenter.defaultCenter().postNotificationName("retryDone", object: self)
+                        object.unpin()
+                    }
                 }
                 else {
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                     println("Error could not parse JSON: \(jsonStr)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("parseLocal", object: self)
-
                 }
             }
-            //Call anything here (to end indicator or some sorts)
-
         })
         task.resume()
     }

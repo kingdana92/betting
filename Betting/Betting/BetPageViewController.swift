@@ -16,14 +16,14 @@ var betVisitor = ""
 var betMatchHomeTeamId = ""
 var betMatchAwayTeamId = ""
 var teamName = ["", "Arsenal", "Chelsea"]
+var bettingAmount = ""
 //Bet
 
 class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     
-    var sMatch: SoccerMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
-    
+    var sMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
+    var paymentStatus = 0
     var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 100, height: 50))
-
     var activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     var paypalID = ""
     var teamChoose = 0
@@ -100,7 +100,7 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "overlayEnder", name: "paymentDone", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveToParse", name: "parseLocal", object: nil)
 
@@ -186,41 +186,66 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
         view.addSubview(boxView)
     }
     func overlayEnder() {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.view.userInteractionEnabled = true
-            self.textLabel.text = "Complete"
-            self.checkMark.hidden = false
-            self.activityView.stopAnimating()
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-                Int64(3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                boxView.removeFromSuperview()
-                self.navigationController?.popViewControllerAnimated(true)
-            }
-        })
+        if paymentStatus == 1 {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.view.userInteractionEnabled = true
+                self.textLabel.text = "Fail"
+                self.checkMark.hidden = true
+                self.activityView.stopAnimating()
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+                    Int64(3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    boxView.removeFromSuperview()
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            })
+            paymentStatus = 0
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.view.userInteractionEnabled = true
+                self.textLabel.text = "Complete"
+                self.checkMark.hidden = false
+                self.activityView.stopAnimating()
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+                    Int64(3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    boxView.removeFromSuperview()
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            })
+        }
+        
     }
     func callUpload() {
-        
+        var object = PFObject()
         if self.teamChoose == 1 {
             self.overlayCaller()
-            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: paypalID)
+            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: betMatchHomeTeamId, teamId2: "0", betAmount: self.betAmount.text, payPalId: paypalID, from: "betPage", object: object)
 
         } else {
             self.overlayCaller()
-            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: paypalID)
+            self.sData.uploadBet(userObjectId, matchId: betMatchId, teamId: "0", teamId2: betMatchAwayTeamId, betAmount: self.betAmount.text, payPalId: paypalID, from: "betPage", object: object)
 
         }
+        bettingAmount = betAmount.text
     }
     
     func saveToParse() {
         let nameBet = PFObject(className:"betList")
-        nameBet["Match"] = sMatch
+        nameBet["homeTeam"] = sMatch.getMatchHomeTeamName
+        nameBet["awayTeam"] = sMatch.getMatchAwayTeamName
+        let formatDate = sMatch.getMatchFormattedDate
+        let formatTime = sMatch.getMatchTime
+        let setMatchTimeString = formatDate + " " + formatTime
+        nameBet["time"] = setMatchTimeString
         nameBet["userObjectId"] = userObjectId
         nameBet["matchId"] = betMatchId
         nameBet["teamId"] = betMatchHomeTeamId
         nameBet["teamId2"] = "0"
-        nameBet["betAmount"] = self.betAmount.text
+        nameBet["betAmount"] = bettingAmount
         nameBet["paypalId"] = paypalID
         nameBet.pinInBackground()
+        paymentStatus = 1
+        NSNotificationCenter.defaultCenter().postNotificationName("paymentDone", object: self)
     }
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var sMatch = SoccerMatch()
@@ -33,6 +35,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Table Style
         detailTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         

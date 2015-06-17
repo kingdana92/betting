@@ -62,6 +62,20 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+//        let nameBet = PFObject(className:"betList")
+//        nameBet["homeTeam"] = "Arsenal"
+//        nameBet["awayTeam"] = "Man Utd"
+//        nameBet["userObjectId"] = userObjectId
+//        nameBet["matchId"] = "1512312"
+//        nameBet["teamId"] = "1231"
+//        nameBet["teamId2"] = "0"
+//        nameBet["betAmount"] = "1231"
+//        nameBet["paypalId"] = "pay-adadad"
+//        nameBet.pinInBackground()
+
+        
+        //PF Query from Local
         let query = PFQuery(className: "betList")
         query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock {
@@ -73,7 +87,7 @@ class LoginViewController: UIViewController {
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
-                        println(object["matchId"])
+                        
                     }
                 }
             } else {
@@ -81,6 +95,7 @@ class LoginViewController: UIViewController {
                 println("Error: \(error!) \(error!.userInfo!)")
             }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

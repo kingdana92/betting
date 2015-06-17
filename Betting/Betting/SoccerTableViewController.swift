@@ -19,7 +19,7 @@ class SoccerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
-        
+
         //Pull to refresh control
         rControl = UIRefreshControl()
         rControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -132,6 +132,9 @@ class SoccerTableViewController: UITableViewController {
         } else {
             performSegueWithIdentifier("betPage", sender: self)
         }
+        
+        
+        
     }
 
     override func viewWillAppear(animated: Bool) {

@@ -19,6 +19,9 @@
 		7232EC881B25727600AC5763 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC871B25727600AC5763 /* Social.framework */; };
 		7232EC8A1B25727E00AC5763 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7232EC891B25727E00AC5763 /* Accounts.framework */; };
 		7232EC8C1B2577CD00AC5763 /* BetPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */; };
+		725E25521B31422D00922401 /* won.png in Resources */ = {isa = PBXBuildFile; fileRef = 725E25511B31422D00922401 /* won.png */; };
+		725E25541B315D4100922401 /* IncompleteBetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E25531B315D4100922401 /* IncompleteBetTableViewCell.swift */; };
+		725E25561B315D5100922401 /* CompleteBetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E25551B315D5100922401 /* CompleteBetTableViewCell.swift */; };
 		72A1EC1B1B2EBC0C00BEC908 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */; };
 		72A1EC1F1B2ED62000BEC908 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1E1B2ED62000BEC908 /* submit.png */; };
 		72A1EC211B2EE04B00BEC908 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC201B2EE04B00BEC908 /* chat.png */; };
@@ -117,6 +120,9 @@
 		7232EC871B25727600AC5763 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7232EC891B25727E00AC5763 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetPageViewController.swift; sourceTree = "<group>"; };
+		725E25511B31422D00922401 /* won.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = won.png; sourceTree = "<group>"; };
+		725E25531B315D4100922401 /* IncompleteBetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncompleteBetTableViewCell.swift; sourceTree = "<group>"; };
+		725E25551B315D5100922401 /* CompleteBetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteBetTableViewCell.swift; sourceTree = "<group>"; };
 		72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		72A1EC1E1B2ED62000BEC908 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
 		72A1EC201B2EE04B00BEC908 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
@@ -297,6 +303,7 @@
 		72BFC1281B146EDD005683CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				725E25511B31422D00922401 /* won.png */,
 				72A1EC201B2EE04B00BEC908 /* chat.png */,
 				72CBF85F1B281A4C00430050 /* arsenal.PNG */,
 				72CBF8601B281A4C00430050 /* Everton_FC.PNG */,
@@ -369,6 +376,8 @@
 				72C249031B1D98D30038AC71 /* DetailTableViewCell.swift */,
 				7232EC8B1B2577CD00AC5763 /* BetPageViewController.swift */,
 				722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */,
+				725E25531B315D4100922401 /* IncompleteBetTableViewCell.swift */,
+				725E25551B315D5100922401 /* CompleteBetTableViewCell.swift */,
 				7232EC8D1B2577DE00AC5763 /* Data */,
 			);
 			name = Soccer;
@@ -496,6 +505,7 @@
 				72CBF8621B281A4C00430050 /* Everton_FC.PNG in Resources */,
 				72BFC1371B146FA4005683CD /* dota blue.png in Resources */,
 				72BFC13D1B146FA4005683CD /* settings blue.png in Resources */,
+				725E25521B31422D00922401 /* won.png in Resources */,
 				72BFC13C1B146FA4005683CD /* News-Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +531,7 @@
 				72E1EB051B28241900B48931 /* DTIAnimPulse.swift in Sources */,
 				72E1EB0D1B283F6000B48931 /* SoccerEvent.swift in Sources */,
 				72E1EB091B28241900B48931 /* DTIAnimWave.swift in Sources */,
+				725E25541B315D4100922401 /* IncompleteBetTableViewCell.swift in Sources */,
 				72C2D3F31B16ED5D00E5CCB0 /* SoccerMatch.swift in Sources */,
 				72CBF8641B281F5C00430050 /* LoadingOverlay.swift in Sources */,
 				72B5E0C81B26FE9A00AE3F1C /* getPayPalToken.swift in Sources */,
@@ -541,6 +552,7 @@
 				72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */,
 				722D4C5A1B3010EB0067F83B /* SoccerLocalDataStore.swift in Sources */,
 				72E1EB021B28241900B48931 /* DTIAnimChasingDots.swift in Sources */,
+				725E25561B315D5100922401 /* CompleteBetTableViewCell.swift in Sources */,
 				72E1EB011B28241900B48931 /* DTIActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
