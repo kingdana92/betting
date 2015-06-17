@@ -62,17 +62,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-//        let nameBet = PFObject(className:"betList")
-//        nameBet["homeTeam"] = "Arsenal"
-//        nameBet["awayTeam"] = "Man Utd"
-//        nameBet["userObjectId"] = userObjectId
-//        nameBet["matchId"] = "1512312"
-//        nameBet["teamId"] = "1231"
-//        nameBet["teamId2"] = "0"
-//        nameBet["betAmount"] = "1231"
-//        nameBet["paypalId"] = "pay-adadad"
-//        nameBet.pinInBackground()
+      
 
         
         //PF Query from Local
@@ -98,6 +88,19 @@ class LoginViewController: UIViewController {
         
     }
 
+    func addToParse() {
+        let nameBet = PFObject(className:"betList")
+        nameBet["homeTeam"] = "Arsenal"
+        nameBet["awayTeam"] = "Man Utd"
+        nameBet["userObjectId"] = userObjectId
+        nameBet["matchId"] = "1512312"
+        nameBet["teamId"] = "1231"
+        nameBet["teamId2"] = "0"
+        nameBet["betAmount"] = "1231"
+        nameBet["paypalId"] = "pay-adadad"
+        nameBet.pinInBackground()
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225BF951B298E6C008BF51F /* SavingIndicator.swift */; };
 		722D4C581B2FE8050067F83B /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C571B2FE8050067F83B /* CheckInternet.swift */; };
 		722D4C5A1B3010EB0067F83B /* SoccerLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C591B3010EB0067F83B /* SoccerLocalDataStore.swift */; };
 		722D4C5E1B302ABC0067F83B /* MyBetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */; };
@@ -92,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7225BF951B298E6C008BF51F /* SavingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingIndicator.swift; sourceTree = "<group>"; };
 		722D4C571B2FE8050067F83B /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		722D4C591B3010EB0067F83B /* SoccerLocalDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoccerLocalDataStore.swift; sourceTree = "<group>"; };
 		722D4C5D1B302ABC0067F83B /* MyBetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyBetTableViewController.swift; path = ../MyBetTableViewController.swift; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 				72E1EAFE1B28241900B48931 /* DTIAnimWp8.swift */,
 				72E1EAFF1B28241900B48931 /* DTIIndicatorStyle.swift */,
 				72CBF8631B281F5C00430050 /* LoadingOverlay.swift */,
-				7225BF951B298E6C008BF51F /* SavingIndicator.swift */,
 			);
 			name = "Animation for Indicator";
 			sourceTree = "<group>";
@@ -546,7 +543,6 @@
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,
 				72E1EB061B28241900B48931 /* DTIAnimRotatingPlane.swift in Sources */,
-				7225BF961B298E6C008BF51F /* SavingIndicator.swift in Sources */,
 				72C249021B1D55CB0038AC71 /* DetailViewController.swift in Sources */,
 				72E1EB031B28241900B48931 /* DTIAnimDoubleBounce.swift in Sources */,
 				72E1EB081B28241900B48931 /* DTIAnimWanderingCubes.swift in Sources */,

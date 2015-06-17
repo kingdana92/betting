@@ -149,6 +149,7 @@ class MyBetTableViewController: UITableViewController {
         
     }
     @IBAction func retryBet(sender: UIButton) {
+        LoadingOverlay.shared.showOverlay(self.view)
         println("retry")
         let query = PFQuery(className: "betList")
         query.fromLocalDatastore()
@@ -178,7 +179,7 @@ class MyBetTableViewController: UITableViewController {
     }
     
     func reloadTable() {
-        
-        println("reload called")
+        LoadingOverlay.shared.hideOverlayView()
+        tableView.reloadData()
     }
 }
