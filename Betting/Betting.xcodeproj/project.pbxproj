@@ -21,6 +21,11 @@
 		725E25521B31422D00922401 /* won.png in Resources */ = {isa = PBXBuildFile; fileRef = 725E25511B31422D00922401 /* won.png */; };
 		725E25541B315D4100922401 /* IncompleteBetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E25531B315D4100922401 /* IncompleteBetTableViewCell.swift */; };
 		725E25561B315D5100922401 /* CompleteBetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E25551B315D5100922401 /* CompleteBetTableViewCell.swift */; };
+		726996F01B32A90A005A7699 /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = 726996EF1B32A90A005A7699 /* goal.png */; };
+		726996F21B32A911005A7699 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 726996F11B32A911005A7699 /* red.png */; };
+		726996F41B32A91B005A7699 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 726996F31B32A91B005A7699 /* yellow.png */; };
+		726996F91B32B855005A7699 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726996F81B32B855005A7699 /* Gif.swift */; };
+		726996FF1B32C70A005A7699 /* live.gif in Resources */ = {isa = PBXBuildFile; fileRef = 726996FE1B32C70A005A7699 /* live.gif */; };
 		72A1EC1B1B2EBC0C00BEC908 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */; };
 		72A1EC1F1B2ED62000BEC908 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC1E1B2ED62000BEC908 /* submit.png */; };
 		72A1EC211B2EE04B00BEC908 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A1EC201B2EE04B00BEC908 /* chat.png */; };
@@ -121,6 +126,11 @@
 		725E25511B31422D00922401 /* won.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = won.png; sourceTree = "<group>"; };
 		725E25531B315D4100922401 /* IncompleteBetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncompleteBetTableViewCell.swift; sourceTree = "<group>"; };
 		725E25551B315D5100922401 /* CompleteBetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteBetTableViewCell.swift; sourceTree = "<group>"; };
+		726996EF1B32A90A005A7699 /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal.png; sourceTree = "<group>"; };
+		726996F11B32A911005A7699 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		726996F31B32A91B005A7699 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		726996F81B32B855005A7699 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		726996FE1B32C70A005A7699 /* live.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = live.gif; sourceTree = "<group>"; };
 		72A1EC1A1B2EBC0C00BEC908 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		72A1EC1E1B2ED62000BEC908 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
 		72A1EC201B2EE04B00BEC908 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
@@ -236,6 +246,16 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		726996F51B32A91F005A7699 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				726996F31B32A91B005A7699 /* yellow.png */,
+				726996F11B32A911005A7699 /* red.png */,
+				726996EF1B32A90A005A7699 /* goal.png */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
 		72BFC0F41B1469E9005683CD = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				7232EC821B256EED00AC5763 /* Betting-Bridging-Header.h */,
+				726996F81B32B855005A7699 /* Gif.swift */,
 				72BFC1281B146EDD005683CD /* Images */,
 				72BFC1011B1469E9005683CD /* Info.plist */,
 			);
@@ -301,6 +322,8 @@
 		72BFC1281B146EDD005683CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				726996FE1B32C70A005A7699 /* live.gif */,
+				726996F51B32A91F005A7699 /* Event */,
 				725E25511B31422D00922401 /* won.png */,
 				72A1EC201B2EE04B00BEC908 /* chat.png */,
 				72CBF85F1B281A4C00430050 /* arsenal.PNG */,
@@ -492,10 +515,14 @@
 				72BFC10A1B1469E9005683CD /* Main.storyboard in Resources */,
 				72CBF8611B281A4C00430050 /* arsenal.PNG in Resources */,
 				72BFC10F1B1469E9005683CD /* LaunchScreen.xib in Resources */,
+				726996F21B32A911005A7699 /* red.png in Resources */,
 				72BFC13B1B146FA4005683CD /* News-Icon blue.png in Resources */,
 				72BFC1381B146FA4005683CD /* dota.png in Resources */,
+				726996FF1B32C70A005A7699 /* live.gif in Resources */,
 				72BFC1351B146FA4005683CD /* background 2.png in Resources */,
 				72BFC13E1B146FA4005683CD /* settings.png in Resources */,
+				726996F41B32A91B005A7699 /* yellow.png in Resources */,
+				726996F01B32A90A005A7699 /* goal.png in Resources */,
 				72A1EC211B2EE04B00BEC908 /* chat.png in Resources */,
 				72BFC1361B146FA4005683CD /* background 3.png in Resources */,
 				72BFC10C1B1469E9005683CD /* Images.xcassets in Resources */,
@@ -539,6 +566,7 @@
 				72E1EB0B1B28241900B48931 /* DTIIndicatorStyle.swift in Sources */,
 				72BFC1271B146E95005683CD /* SoccerTableViewController.swift in Sources */,
 				72E1EB041B28241900B48931 /* DTIAnimProtocol.swift in Sources */,
+				726996F91B32B855005A7699 /* Gif.swift in Sources */,
 				72BFC1251B146E84005683CD /* SoccerTableViewCell.swift in Sources */,
 				72CEB10F1B159C770097B317 /* LoginViewController.swift in Sources */,
 				72BFC1031B1469E9005683CD /* AppDelegate.swift in Sources */,

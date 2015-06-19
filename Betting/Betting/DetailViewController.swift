@@ -27,6 +27,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     //Live Status
     @IBOutlet weak var liveEventTime: UILabel!
     @IBOutlet weak var liveEventImage: UIImageView!
+    @IBOutlet weak var liveLabel: UILabel!
     //TableView
     @IBOutlet weak var detailTableView: UITableView!
     //Commentary
@@ -38,6 +39,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         //Table Style
         detailTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        detailTableView.allowsSelection = false
         
         //Notif Receiver
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
@@ -81,8 +83,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         //Commentary
         
-        //Live Status
-        liveEventTime.text = fixture.getMatchStatus + "'"
+        //Live Status and Image
+        if fixture.getMatchStatus == "FT" || fixture.getMatchStatus == "HT" {
+            liveEventTime.text = fixture.getMatchStatus
+        } else {
+            liveEventTime.text = fixture.getMatchStatus + "'"
+        }
+        if fixture.getMatchStatus == "FT" || fixture.getMatchStatus == "AET"{
+            liveLabel.text = ""
+        } else {
+            //Live Event Image Status
+            var url = NSBundle.mainBundle().URLForResource("live", withExtension: "gif")
+            var imageData = NSData(contentsOfURL: url!)
+            liveEventImage.image = UIImage.animatedImageWithData(imageData!)
+        }
+  
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,9 +129,23 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             if event.getEventTeam == "localteam" {
                 cell.homeTeamEventPlayer.text = event.getEventPlayer
                 cell.awayTeamEventPlayer.text = ""
+                if event.getEventType == "yellowcard" {
+                    cell.homeTeamEventImage.image = UIImage(named: "yellow.png")
+                } else if event.getEventType == "goal" {
+                    cell.homeTeamEventImage.image = UIImage(named: "goal.png")
+                } else {
+                    cell.homeTeamEventImage.image = UIImage(named: "red.png")
+                }
             } else {
                 cell.homeTeamEventPlayer.text = ""
                 cell.awayTeamEventPlayer.text = event.getEventPlayer
+                if event.getEventType == "yellowcard" {
+                    cell.awayTeamEventImage.image = UIImage(named: "yellow.png")
+                } else if event.getEventType == "goal" {
+                    cell.awayTeamEventImage.image = UIImage(named: "goal.png")
+                } else {
+                    cell.awayTeamEventImage.image = UIImage(named: "red.png")
+                }
             }
             cell.eventTime.text = event.getEventMinute + "'"
         }

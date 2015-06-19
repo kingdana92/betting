@@ -19,7 +19,7 @@ var teamName = ["", "Arsenal", "Chelsea"]
 var bettingAmount = ""
 //Bet
 
-class BetPageViewController: UIViewController, PayPalPaymentDelegate {
+class BetPageViewController: UIViewController, PayPalPaymentDelegate, UITextFieldDelegate {
     
     var sMatch = getData.matchArray.objectAtIndex(activeRow) as! SoccerMatch
     var paymentStatus = 0
@@ -100,7 +100,7 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        betAmount.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "overlayEnder", name: "paymentDone", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveToParse", name: "parseLocal", object: nil)
 
@@ -247,5 +247,19 @@ class BetPageViewController: UIViewController, PayPalPaymentDelegate {
         nameBet.pinInBackground()
         paymentStatus = 1
         NSNotificationCenter.defaultCenter().postNotificationName("paymentDone", object: self)
+    }
+    
+    //Keyboard Functions
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
+            betAmount.resignFirstResponder()
+            self.view.endEditing(true)
+        }
+        super.touchesBegan(touches , withEvent:event)
     }
 }

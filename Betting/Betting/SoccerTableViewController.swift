@@ -18,6 +18,9 @@ class SoccerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: notifKey, object: nil)
 
         //Pull to refresh control
@@ -126,7 +129,7 @@ class SoccerTableViewController: UITableViewController {
         teamName[1] = fixture.getMatchHomeTeamName
         teamName[2] = fixture.getMatchAwayTeamName
         betMatchId = fixture.getMatchId
-        if fixture.getUpcomingTime().toInt() < 0 {
+        if fixture.getUpcomingTime().toInt() < 30 {
             //performSegueWithIdentifier("soccerDetail", sender: self)
             performSegueWithIdentifier("betPage", sender: self)
         } else {

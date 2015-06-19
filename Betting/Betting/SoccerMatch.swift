@@ -128,9 +128,9 @@ class SoccerMatch {
         var correctMinute = minutes - minutes * 2
         var hours = (upcomingDate / 3600) - (upcomingDate / 3600 * 2)
         if correctMinute < 10 {
-            upcomingTime = "\(hours):0\(correctMinute)"
+            upcomingTime = "\(hours)hr 0\(correctMinute)min"
         } else {
-            upcomingTime = "\(hours):\(correctMinute)"
+            upcomingTime = "\(hours)hr \(correctMinute)min"
         }
         if hours == 0 && correctMinute == 0 {
             live = true

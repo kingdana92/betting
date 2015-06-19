@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
-                        
+                        //object.unpin()
                     }
                 }
             } else {

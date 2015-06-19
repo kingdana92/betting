@@ -16,7 +16,7 @@ class MyBetTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 130
-        
+        tableView.allowsSelection = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: "retryDone", object: nil)
 
         
@@ -120,9 +120,15 @@ class MyBetTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
+            if firstSection == 0 {
+                return nil
+            }
             return "Incomplete Bet"
         }
         if section == 1 {
+            if firstSection == 0 {
+                return nil
+            }
             return "Complete Bet"
         }
         return nil

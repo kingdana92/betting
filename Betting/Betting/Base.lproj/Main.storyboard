@@ -1101,7 +1101,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dota blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-vA-NcJ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-vA-NcJ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="a7T-ef-LQ7"/>
@@ -1217,7 +1217,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="News-Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="KRb-i9-yVW">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRb-i9-yVW">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="Xh0-59-0G2"/>
@@ -1233,7 +1233,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="News-Icon blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-Ak-f6Y">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-Ak-f6Y">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="7QK-BZ-Aul"/>
@@ -1369,25 +1369,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVl-nd-ope">
                                 <rect key="frame" x="20" y="433" width="400" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel " lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ezq-Sv-WoV">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="rGJ-fg-9r2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="rGJ-fg-9r2"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="rGJ-fg-9r2"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xrf-Fl-U8W">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
@@ -1407,6 +1388,26 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ezq-Sv-WoV">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="rGJ-fg-9r2"/>
+                                        </constraints>
+                                        <string key="text">The object whose notifications the observer wants to receive; that is, only notifications sent by this sender are delivered to the observer.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.81200678661616166" green="0.81200678661616166" blue="0.81200678661616166" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="rGJ-fg-9r2"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="rGJ-fg-9r2"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95136220762870438" green="1" blue="0.89691232155660416" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1421,8 +1422,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="Ezq-Sv-WoV"/>
                                         <exclude reference="Xrf-Fl-U8W"/>
+                                        <exclude reference="Ezq-Sv-WoV"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="684-yG-1u0"/>
@@ -1437,8 +1438,8 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="Ezq-Sv-WoV"/>
                                         <include reference="Xrf-Fl-U8W"/>
+                                        <include reference="Ezq-Sv-WoV"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="684-yG-1u0"/>
@@ -1622,6 +1623,7 @@
                         <outlet property="homeTeamScore" destination="6Yv-jF-9aO" id="gHz-wP-MuW"/>
                         <outlet property="liveEventImage" destination="eWJ-vA-NcJ" id="beC-in-cXc"/>
                         <outlet property="liveEventTime" destination="bck-Xi-AU3" id="INH-Nf-T3c"/>
+                        <outlet property="liveLabel" destination="Brg-SP-fG9" id="s3J-Eh-zYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nf-gZ-i3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1679,7 +1681,7 @@
         <scene sceneID="q5K-hn-48c">
             <objects>
                 <tableViewController id="uzd-KI-RVy" customClass="MyBetTableViewController" customModule="Betting" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YHb-ej-ckO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YHb-ej-ckO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1696,15 +1698,6 @@
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="8" y="28" width="130" height="21"/>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chelsea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHc-uC-XxJ">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="182" y="28" width="130" height="21"/>
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwx-Vb-eK3">
@@ -1756,27 +1749,36 @@
                                                 <rect key="frame" x="0.0" y="91" width="156" height="38"/>
                                             </variation>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chelsea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHc-uC-XxJ">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="182" y="28" width="130" height="21"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="KD3-k5-GTv"/>
-                                            <exclude reference="YHc-uC-XxJ"/>
                                             <exclude reference="Mwx-Vb-eK3"/>
                                             <exclude reference="2PW-HE-1pg"/>
                                             <exclude reference="OXS-Ak-QHl"/>
                                             <exclude reference="WgX-nF-60Y"/>
                                             <exclude reference="VJW-mr-h7e"/>
+                                            <exclude reference="YHc-uC-XxJ"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="KD3-k5-GTv"/>
-                                            <include reference="YHc-uC-XxJ"/>
                                             <include reference="Mwx-Vb-eK3"/>
                                             <include reference="2PW-HE-1pg"/>
                                             <include reference="OXS-Ak-QHl"/>
                                             <include reference="WgX-nF-60Y"/>
                                             <include reference="VJW-mr-h7e"/>
+                                            <include reference="YHc-uC-XxJ"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -1932,8 +1934,6 @@
     </scenes>
     <resources>
         <image name="Everton_FC.PNG" width="1396" height="1198"/>
-        <image name="News-Icon blue.png" width="512" height="512"/>
-        <image name="News-Icon.png" width="512" height="512"/>
         <image name="arsenal.PNG" width="685" height="685"/>
         <image name="background 1.png" width="720" height="360"/>
         <image name="chat.png" width="113" height="111"/>
