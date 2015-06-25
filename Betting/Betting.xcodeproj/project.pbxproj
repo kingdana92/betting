@@ -246,6 +246,29 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		7242F1541B37E92F0086E6F8 /* PayPal */ = {
+			isa = PBXGroup;
+			children = (
+				7232EC691B256E3F00AC5763 /* CardIO.h */,
+				7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */,
+				7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */,
+				7232EC6C1B256E3F00AC5763 /* CardIOPaymentViewController.h */,
+				7232EC6D1B256E3F00AC5763 /* CardIOPaymentViewControllerDelegate.h */,
+				7232EC6E1B256E3F00AC5763 /* CardIOUtilities.h */,
+				7232EC6F1B256E3F00AC5763 /* CardIOView.h */,
+				7232EC701B256E3F00AC5763 /* CardIOViewDelegate.h */,
+				7232EC711B256E3F00AC5763 /* libPayPalMobile.a */,
+				7232EC721B256E3F00AC5763 /* PayPalConfiguration.h */,
+				7232EC731B256E3F00AC5763 /* PayPalFuturePaymentViewController.h */,
+				7232EC741B256E3F00AC5763 /* PayPalMobile.h */,
+				7232EC751B256E3F00AC5763 /* PayPalOAuthScopes.h */,
+				7232EC761B256E3F00AC5763 /* PayPalPayment.h */,
+				7232EC771B256E3F00AC5763 /* PayPalPaymentViewController.h */,
+				7232EC781B256E3F00AC5763 /* PayPalProfileSharingViewController.h */,
+			);
+			name = PayPal;
+			sourceTree = "<group>";
+		};
 		726996F51B32A91F005A7699 /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,22 +377,7 @@
 				7232EC7E1B256EAB00AC5763 /* CoreMedia.framework */,
 				7232EC7C1B256E9A00AC5763 /* AVFoundation.framework */,
 				7232EC7A1B256E8E00AC5763 /* Accelerate.framework */,
-				7232EC691B256E3F00AC5763 /* CardIO.h */,
-				7232EC6A1B256E3F00AC5763 /* CardIOCreditCardInfo.h */,
-				7232EC6B1B256E3F00AC5763 /* CardIODetectionMode.h */,
-				7232EC6C1B256E3F00AC5763 /* CardIOPaymentViewController.h */,
-				7232EC6D1B256E3F00AC5763 /* CardIOPaymentViewControllerDelegate.h */,
-				7232EC6E1B256E3F00AC5763 /* CardIOUtilities.h */,
-				7232EC6F1B256E3F00AC5763 /* CardIOView.h */,
-				7232EC701B256E3F00AC5763 /* CardIOViewDelegate.h */,
-				7232EC711B256E3F00AC5763 /* libPayPalMobile.a */,
-				7232EC721B256E3F00AC5763 /* PayPalConfiguration.h */,
-				7232EC731B256E3F00AC5763 /* PayPalFuturePaymentViewController.h */,
-				7232EC741B256E3F00AC5763 /* PayPalMobile.h */,
-				7232EC751B256E3F00AC5763 /* PayPalOAuthScopes.h */,
-				7232EC761B256E3F00AC5763 /* PayPalPayment.h */,
-				7232EC771B256E3F00AC5763 /* PayPalPaymentViewController.h */,
-				7232EC781B256E3F00AC5763 /* PayPalProfileSharingViewController.h */,
+				7242F1541B37E92F0086E6F8 /* PayPal */,
 				72CEB1021B15850E0097B317 /* Bolts.framework */,
 				72CEB1031B15850E0097B317 /* Parse.framework */,
 				72CEB1071B15850E0097B317 /* ParseUI.framework */,

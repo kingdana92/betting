@@ -184,7 +184,7 @@
                                             <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvK-ky-321">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TvK-ky-321">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1899,6 +1899,7 @@
                                     <outlet property="homeTeamBetAmountComplete" destination="H29-oA-tPO" id="yrS-sm-4pT"/>
                                     <outlet property="homeTeamComplete" destination="Rpy-Hb-AKT" id="uZF-22-OIb"/>
                                     <outlet property="homeTeamWin" destination="Cm4-Xs-MaF" id="gSP-lJ-hZe"/>
+                                    <outlet property="withdrawBet" destination="QyW-Cx-Y3y" id="g1j-tZ-hNE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

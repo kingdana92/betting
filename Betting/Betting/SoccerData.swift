@@ -33,8 +33,8 @@ class SoccerData {
     
     //Functions
     func getFixtures() {
-//        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_livescore/format/json")!)
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/get_fixtures/format/json")!)
+//        var request = NSMutableURLRequest(URL: NSURL(string: "http://hohotransport.com/football/api/match/get_livescore/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.100.106/football/api/match/get_fixtures/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -114,9 +114,12 @@ class SoccerData {
     }
     
     
-    //Betting Process
+    
+    
+    
+    //Bet Process
     func uploadBet(userId : String, matchId : String, teamId : String, teamId2 : String, betAmount : String, payPalId : String, from : String, object : PFObject) {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.0.106/football/api/match/user_betting/format/json")!)
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://hohotransport.com/football/api/match/user_betting/format/json")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         
@@ -124,7 +127,7 @@ class SoccerData {
         
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -155,6 +158,90 @@ class SoccerData {
                         NSNotificationCenter.defaultCenter().postNotificationName("retryDone", object: self)
                         object.unpin()
                     }
+                }
+                else {
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                }
+            }
+        })
+        task.resume()
+    }
+    
+    //Refund Process
+    func refundBet(userId : String, matchId : String, paypalId : String) {
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://hohotransport.com/football/api/match/user_betting/format/json")!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        
+        var params = ["user_id":userId,"match_id":matchId,"paypal":paypalId] as Dictionary<String, String>
+        
+        var err: NSError?
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            println("Response: \(response)")
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("Body: \(strData)")
+            var err: NSError?
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
+                
+            }
+            else {
+                if let parseJSON = json {
+                    var success = parseJSON["success"] as? String
+                    println("Success: \(success)")
+                    
+                    
+                }
+                else {
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                }
+            }
+        })
+        task.resume()
+    }
+    
+    //Withdraw Winning
+    func withdrawBet(userId : String, matchId : String, paypalId : String) {
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://hohotransport.com/football/api/match/user_betting/format/json")!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        
+        var params = ["user_id":userId,"match_id":matchId,"paypal":paypalId] as Dictionary<String, String>
+        
+        var err: NSError?
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            println("Response: \(response)")
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("Body: \(strData)")
+            var err: NSError?
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
+                
+            }
+            else {
+                if let parseJSON = json {
+                    var success = parseJSON["success"] as? String
+                    println("Success: \(success)")
+                    
+                    
                 }
                 else {
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)

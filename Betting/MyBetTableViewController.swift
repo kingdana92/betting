@@ -106,7 +106,8 @@ class MyBetTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("betCell", forIndexPath: indexPath) as! CompleteBetTableViewCell
             //Complete Cell Section
             
-            
+            cell.withdrawBet.tag = indexPath.row
+            cell.withdrawBet.addTarget(self, action: "withdrawBet:", forControlEvents: .TouchUpInside)
             
             
             
@@ -182,7 +183,54 @@ class MyBetTableViewController: UITableViewController {
 
     @IBAction func refundBet(sender: UIButton) {
         println("refund")
+        LoadingOverlay.shared.showOverlay(self.view)
+        let query = PFQuery(className: "betList")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects as? [PFObject] {
+                    var object = objects[sender.tag]
+                    var user = object["userObjectId"] as! String
+                    var match = object["matchId"] as! String
+                    var homeTeam = object["teamId"] as! String
+                    var awayTeam = object["teamId2"] as! String
+                    var amount = object["betAmount"] as! String
+                    var paypal = object["paypalId"] as! String
+                    getData.refundBet(user, matchId: match, paypalId: paypal)
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
     }
+    
+    @IBAction func withdrawBet(sender: UIButton) {
+        println("withdraw")
+//        LoadingOverlay.shared.showOverlay(self.view)
+//        let query = PFQuery(className: "betList")
+//        query.fromLocalDatastore()
+//        query.findObjectsInBackgroundWithBlock {
+//            (objects: [AnyObject]?, error: NSError?) -> Void in
+//            if error == nil {
+//                if let objects = objects as? [PFObject] {
+//                    var object = objects[sender.tag]
+//                    var user = object["userObjectId"] as! String
+//                    var match = object["matchId"] as! String
+//                    var homeTeam = object["teamId"] as! String
+//                    var awayTeam = object["teamId2"] as! String
+//                    var amount = object["betAmount"] as! String
+//                    var paypal = object["paypalId"] as! String
+//                    getData.withdrawBet(user, matchId: match, paypalId: paypal)
+//                }
+//            } else {
+//                // Log details of the failure
+//                println("Error: \(error!) \(error!.userInfo!)")
+//            }
+//        }
+    }
+    
     
     func reloadTable() {
         LoadingOverlay.shared.hideOverlayView()

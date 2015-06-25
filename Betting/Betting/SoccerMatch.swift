@@ -123,19 +123,20 @@ class SoccerMatch {
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
         dateFormatter.timeZone = NSTimeZone(name: "GMT")
         let dateFString = dateFormatter.dateFromString(upcomingMatchTime)
+        println(NSInteger(NSDate().timeIntervalSinceDate(dateFString!)))
         let upcomingDate = NSInteger(NSDate().timeIntervalSinceDate(dateFString!))
         var minutes = (upcomingDate / 60) % 60
         var correctMinute = minutes - minutes * 2
         var hours = (upcomingDate / 3600) - (upcomingDate / 3600 * 2)
-        if correctMinute < 10 {
-            upcomingTime = "\(hours)hr 0\(correctMinute)min"
+        if upcomingDate < 0 {
+            if correctMinute < 10 {
+                upcomingTime = "\(hours)hr 0\(correctMinute)min"
+            } else {
+                upcomingTime = "\(hours)hr \(correctMinute)min"
+            }
+
         } else {
-            upcomingTime = "\(hours)hr \(correctMinute)min"
-        }
-        if hours == 0 && correctMinute == 0 {
-            live = true
-        } else {
-            live = false
+            upcomingTime = "Live"
         }
     }
     

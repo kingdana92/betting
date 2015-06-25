@@ -18,6 +18,7 @@ class CompleteBetTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeamBetAmountComplete: UILabel!
     @IBOutlet weak var awayTeamBetAmountComplete: UILabel!
   
+    @IBOutlet weak var withdrawBet: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
